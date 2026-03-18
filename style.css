@@ -250,3 +250,58 @@ footer {
         font-size: 0.85rem;
     }
 }
+
+.circle-badge {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Настройка самого SVG текста */
+.circle-badge svg {
+    width: 100%;
+    height: 100%;
+    fill: #34495e; /* Цвет текста */
+    font-weight: bold;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: rotateText 10s linear infinite; /* Скорость вращения */
+}
+
+/* Иконка в центре круга */
+.badge-icon {
+    position: absolute;
+    font-size: 1.5rem;
+    color: #e74c3c; /* Цвет сердечка */
+    animation: pulseHeart 2s infinite; /* Эффект биения сердца */
+}
+
+/* Анимация вращения */
+@keyframes rotateText {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Анимация пульсации иконки */
+@keyframes pulseHeart {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Скрываем на очень маленьких экранах, чтобы не мешало контенту */
+@media (max-width: 400px) {
+    .circle-badge {
+        width: 80px;
+        height: 80px;
+        bottom: 10px;
+        right: 10px;
+    }
+}
