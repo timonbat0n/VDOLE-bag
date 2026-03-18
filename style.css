@@ -291,3 +291,33 @@ footer {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+/* Иконка в центре круга */
+.badge-icon {
+    position: absolute;
+    /* Центрируем строго по середине родителя */
+    top: 50%;
+    left: 50%;
+    /* Сдвигаем назад на 50% собственной ширины/высоты, чтобы центр совпал */
+    transform: translate(-50%, -50%);
+    
+    font-size: 1.5rem;
+    color: #e74c3c;
+    z-index: 10;
+    
+    /* Применяем анимацию пульсации */
+    animation: pulseHeart 2s infinite ease-in-out;
+}
+
+/* Исправленная анимация пульсации */
+@keyframes pulseHeart {
+    0% { 
+        /* Важно сохранять translate(-50%, -50%), иначе иконка улетит из центра при увеличении */
+        transform: translate(-50%, -50%) scale(1); 
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1.2); 
+    }
+    100% { 
+        transform: translate(-50%, -50%) scale(1); 
+    }
+}
