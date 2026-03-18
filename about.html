@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обо мне - Вожатский чемоданчик</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fdfdfd; color: #333; }
+        header { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; padding: 40px 20px; text-align: center; position: relative; 
+        }
+        .back-btn { position: absolute; left: 20px; top: 20px; color: white; text-decoration: none; }
+        
+      
+.profile-img {
+    width: 120px; height: 120px;
+    border-radius: 50%; border: 4px solid white;
+    background: #eee; margin: 0 auto 15px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; color: #764ba2;
+    overflow: hidden; 
+}
+
+
+.profile-img img {
+    width: 100%;       /* Фото займет всю ширину круга */
+    height: 100%;      /* Фото займет всю высоту круга */
+    object-fit: cover; /* Свойство, чтобы фото не сплющилось, а красиво обрезалось по центру */
+}
+
+        .container { max-width: 700px; margin: -30px auto 30px; padding: 0 15px; }
+        .info-card { 
+            background: white; padding: 25px; border-radius: 15px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 20px; 
+        }
+        
+        h2 { color: #764ba2; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-top: 0; }
+        .credo { font-style: italic; font-size: 1.1rem; text-align: center; color: #555; }
+        
+        .contact-list { list-style: none; padding: 0; }
+        .contact-list li { margin: 10px 0; display: flex; align-items: center; gap: 10px; }
+        .contact-list i { color: #667eea; width: 20px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</a>
+        <div class="profile-img">
+    <img src="my_photo.jpg" alt="Уколов Тимофей"> 
+</div>
+<h1>Тимофей Уколов</h1>
+        <p>вожатый / диджей / а так же просто Тимон</p>
+    </header>
+
+    <main class="container">
+        
+        <div class="info-card">
+            <h2><i class="fas fa-quote-left"></i> Моё кредо</h2>
+            <p class="credo">«Вожатый — это не работа, это состояние души и вечный поиск искры в каждом ребенке».</p>
+        </div>
+
+        <div class="info-card">
+            <h2><i class="fas fa-star"></i> Опыт и достижения</h2>
+            <ul>
+                <li>Участник конкурса "Профессионалы" в компетенции : Воспитатель</li>
+                <li>Опыт работы:  3 смены в ДОЛ "«Сосновый Бор»"</li>
+                <li>Специализация: Диджеинг, гитара, программирование</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h2><i class="fas fa-address-book"></i> Контакты</h2>
+            <ul class="contact-list">
+                <li><i class="fab fa-telegram"></i> @timoonbat</li>
+                <li><i class="fas fa-envelope"></i> i@tukolov.ru</li>
+                <li><i class="fas fa-phone"></i> +7 (900) 588-20-70</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <footer style="text-align: center; color: #999; font-size: 0.8rem; padding-bottom: 20px;">
+        ну вот такой я 
+    </footer>
+
+</body>
+</html>
