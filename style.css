@@ -260,48 +260,34 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: 9999; /* Выводим на самый передний план */
+    pointer-events: none; /* Чтобы не мешал нажимать на другие кнопки */
 }
 
-/* Настройка самого SVG текста */
+/* Обновленный блок анимации с поддержкой всех браузеров */
 .circle-badge svg {
     width: 100%;
     height: 100%;
-    fill: #34495e; /* Цвет текста */
+    fill: #34495e;
     font-weight: bold;
     font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    animation: rotateText 10s linear infinite; /* Скорость вращения */
+    
+    /* Добавляем префиксы для гарантии */
+    -webkit-animation: rotateText 10s linear infinite;
+    -moz-animation: rotateText 10s linear infinite;
+    -o-animation: rotateText 10s linear infinite;
+    animation: rotateText 10s linear infinite;
 }
 
-/* Иконка в центре круга */
-.badge-icon {
-    position: absolute;
-    font-size: 1.5rem;
-    color: #e74c3c; /* Цвет сердечка */
-    animation: pulseHeart 2s infinite; /* Эффект биения сердца */
+/* Сама анимация с префиксами */
+@-webkit-keyframes rotateText {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
 }
 
-/* Анимация вращения */
 @keyframes rotateText {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
-}
-
-/* Анимация пульсации иконки */
-@keyframes pulseHeart {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-/* Скрываем на очень маленьких экранах, чтобы не мешало контенту */
-@media (max-width: 400px) {
-    .circle-badge {
-        width: 80px;
-        height: 80px;
-        bottom: 10px;
-        right: 10px;
-    }
 }
