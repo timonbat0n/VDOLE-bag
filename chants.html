@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Речёвки и кричалки - Вожатский чемоданчик</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .chant-section { margin-bottom: 30px; }
+        .chant-section h2 { color: #1abc9c; border-bottom: 2px solid #1abc9c; padding-bottom: 10px; }
+
+        .chant-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #1abc9c;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .dialog { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+        .leader { color: #e74c3c; font-weight: bold; } /* Вожатый - красный */
+        .squad { color: #2980b9; font-weight: bold; padding-left: 20px; } /* Отряд - синий */
+        
+        .rhyme {
+            font-style: italic;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            display: block;
+            margin: 10px 0;
+            line-height: 1.4;
+        }
+
+        .badge-cat {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            background: #1abc9c;
+            color: white;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+    <header style="background: linear-gradient(135deg, #1abc9c, #16a085);">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</a>
+        <h1><i class="fas fa-bullhorn"></i> Речёвки и кричалки</h1>
+        <p>Голос твоего отряда</p>
+    </header>
+
+    <main class="container content-page">
+
+        <section class="chant-section">
+            <h2><i class="fas fa-comments"></i> Игровые и интерактивные</h2>
+            
+            <div class="chant-card">
+                <span class="badge-cat">Повторялка</span>
+                <h3>Чика-бум</h3>
+                <div class="dialog">
+                    <span class="leader">В: Чика-бум — крутая песня!</span>
+                    <span class="squad">О: (повторяет)</span>
+                    <span class="leader">В: Будем петь её все вместе!</span>
+                    <span class="squad">О: (повторяет)</span>
+                    <span class="leader">В: Если нужен классный шум —</span>
+                    <span class="squad">О: (повторяет)</span>
+                    <span class="leader">В: Пойте с нами — чика-бум!</span>
+                    <span class="squad">О: (повторяет)</span>
+                    <span class="rhyme">ФИНАЛ: Пою я — бум-чика-рака-чика-така-чика-бум О Е!</span>
+                </div>
+            </div>
+
+            <div class="chant-card">
+                <span class="badge-cat">Настрой</span>
+                <h3>Проверка настроения</h3>
+                <div class="dialog">
+                    <span class="leader">В: Настроенье каково?</span>
+                    <span class="squad">О: ВО!!! (палец вверх)</span>
+                    <span class="leader">В: Все такого мнения?</span>
+                    <span class="squad">О: ДА!</span>
+                    <span class="leader">В: Все без исключения?</span>
+                    <span class="squad">О: ДА!</span>
+                    <span class="leader">В: Молодцы!</span>
+                    <span class="squad">О: УРА!</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="chant-section">
+            <h2 style="color: #e67e22; border-color: #e67e22;"><i class="fas fa-utensils"></i> Режимные (Столовая)</h2>
+            
+            <div class="chant-card" style="border-left-color: #e67e22;">
+                <h3>Перед едой</h3>
+                <div class="dialog">
+                    <span class="leader">В: Лицо умытое? — <span class="squad">О: Умытое!</span></span>
+                    <span class="leader">В: Руки чистые? — <span class="squad">О: Чистые!</span></span>
+                    <span class="leader">В: Есть хотите? — <span class="squad">О: Хотим!</span></span>
+                    <span class="leader">В: Ну тогда — летим, едим!</span>
+                </div>
+            </div>
+
+            <div class="chant-card" style="border-left-color: #e67e22;">
+                <h3>Шуточная про победу</h3>
+                <span class="rhyme">Пейте дети молоко, Вам до наших далеко. <br> Пейте дети простоквашу, Все равно победа — наша!</span>
+            </div>
+        </section>
+
+        <section class="chant-section">
+            <h2 style="color: #e74c3c; border-color: #e74c3c;"><i class="fas fa-trophy"></i> Спортивный дух</h2>
+            <div class="chant-card" style="border-left-color: #e74c3c;">
+                <h3>Вызов сопернику</h3>
+                <span class="rhyme">Мы готовы, как всегда, Победить вас без труда! <br> У Вас на воротах стоит тумбочка в колготах!</span>
+            </div>
+            <div class="chant-card" style="border-left-color: #e74c3c;">
+                <h3>Для боления</h3>
+                <span class="rhyme">Ни шагу назад, ни шагу на месте, <br> А только вперед и только все вместе! <br> Еще гол, еще два, еще тридцать три гола!</span>
+            </div>
+        </section>
+
+        <section class="chant-section">
+            <h2 style="color: #34495e; border-color: #34495e;"><i class="fas fa-shoe-prints"></i> В пути (Строевые)</h2>
+            <div class="chant-card" style="border-left-color: #34495e;">
+                <div class="dialog">
+                    <span class="leader">В: Раз, два! — <span class="squad">О: Три, четыре!</span></span>
+                    <span class="leader">В: Раз, два! — <span class="squad">О: Три, четыре!</span></span>
+                    <span class="leader">В: Кто идет?</span>
+                    <span class="squad">О: Дружный наш отряд идет!</span>
+                    <span class="leader">В: Кто поет?</span>
+                    <span class="squad">О: Громче всех отряд поет!</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="important-note">
+            <i class="fas fa-magic"></i> <strong>Творчество:</strong> Лучшая кричалка — та, что придумана вместе с детьми во время КТД. Используйте «Тендер идей», чтобы создать уникальный ритуал вашего отряда!
+        </div>
+
+    </main>
+
+</body>
+</html>

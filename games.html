@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игротека - Вожатский чемоданчик</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+     header { background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; text-align: center; padding: 2rem; position: relative; }
+.category-header { display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 10px; margin: 20px 0 10px; font-weight: bold; }
+.cat-bus { background: #f1c40f; color: #000; }
+.cat-rain { background: #3498db; color: #fff; }
+.cat-sport { background: #2ecc71; color: #fff; }
+.game-item { background: white; border-radius: 12px; padding: 15px; margin-bottom: 10px; border: 1px solid #eee; }
+.game-tag { float: right; font-size: 0.6rem; background: #eee; padding: 2px 5px; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</a>
+        <h1><i class="fas fa-gamepad"></i> Игротека вожатого</h1>
+        <p>Игры на все случаи лагерной жизни</p>
+    </header>
+
+    <main class="container content-page">
+
+        <section class="game-category">
+            <div class="category-header cat-bus">
+                <i class="fas fa-bus"></i>
+                <h2>1. Игры в пути (автобус, поезд)</h2>
+            </div>
+            <div class="game-grid">
+                <div class="game-item">
+                    <h4>Трехлитровая банка <span class="game-tag">Словесная</span></h4>
+                    <p>Называем слова на одну букву, которые влезут в банку. Развивает внимательность и словарный запас.</p>
+                </div>
+                <div class="game-item">
+                    <h4>С одной буквой <span class="game-tag">Реакция</span></h4>
+                    <p>Вожатый быстро задает вопросы, а дети отвечают только словами на выбранную букву (например, «П»).</p>
+                </div>
+                <div class="game-item">
+                    <h4>Встреча лагеря <span class="game-tag">Эмоции</span></h4>
+                    <p>Готовим «шумовой оркестр»: свист, хлопки, кричалки для эффектного въезда в лагерь.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="game-category">
+            <div class="category-header cat-rain">
+                <i class="fas fa-cloud-showers-heavy"></i>
+                <h2>2. В помещении (на случай дождя)</h2>
+            </div>
+            <div class="game-grid">
+                <div class="game-item">
+                    <h4>Боб-Доб <span class="game-tag">Находчивость</span></h4>
+                    <p>Водящий угадывает, у кого спрятана монета, когда все одновременно кладут руки на стол.</p>
+                </div>
+                <div class="game-item">
+                    <h4>Сторож <span class="game-tag">Активная</span></h4>
+                    <p>Нужно перебежать на свободный стул, пока «сторожа» не успели вас удержать.</p>
+                </div>
+                <div class="game-item">
+                    <h4>Зоопарк <span class="game-tag">Память</span></h4>
+                    <p>Передача хода через жесты животных. Ошибка — вылет или штрафное очко.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="game-category">
+            <div class="category-header cat-sport">
+                <i class="fas fa-running"></i>
+                <h2>3. Спортивные и активные (КТД)</h2>
+            </div>
+            <div class="game-grid">
+                <div class="game-item">
+                    <h4>Удав <span class="game-tag">Командная</span></h4>
+                    <p>Команда цепочкой (руки на плечи) огибает препятствия, не разрывая «тело» змеи.</p>
+                </div>
+                <div class="game-item">
+                    <h4>Сиамские близнецы <span class="game-tag">Сплочение</span></h4>
+                    <p>Бег парами, сцепившись руками за спиной. Требует полной синхронности движений.</p>
+                </div>
+                <div class="game-item">
+                    <h4>Черепаха <span class="game-tag">Эстафета</span></h4>
+                    <p>Ползание на четвереньках с тазом на спине. Задача — не уронить «панцирь».</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="game-category">
+            <div class="category-header cat-analyze">
+                <i class="fas fa-lightbulb"></i>
+                <h2>4. Планирование и анализ</h2>
+            </div>
+            <div class="game-grid">
+                <div class="game-item">
+                    <h4>Пять пальцев <span class="game-tag">Рефлексия</span></h4>
+                    <p>Мизинец (мысли), Безымянный (близость цели), Средний (состояние), Указательный (услуга), Большой (бодрость).</p>
+                </div>
+                <div class="game-item">
+                    <h4>Тендер идей <span class="game-tag">Лидерство</span></h4>
+                    <p>Защита проектов мероприятий перед всем отрядом. Выбор лучших дел на смену.</p>
+                </div>
+                <div class="game-item">
+                    <h4>Ниточка <span class="game-tag">Огонек</span></h4>
+                    <p>Говоришь, пока наматываешь нитку на палец. Помогает структурировать мысли и не затягивать речь.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="important-note">
+            <i class="fas fa-info-circle"></i> <strong>Совет:</strong> Всегда имей в запасе 2-3 «пятиминутки» (игры без реквизита), чтобы занять отряд в очереди в столовую или перед линейкой.
+        </div>
+
+    </main>
+
+
+
+</body>
+</html>

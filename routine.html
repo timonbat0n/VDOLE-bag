@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Режим и быт - Вожатский чемоданчик</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+header { background: linear-gradient(135deg, #3498db, #2980b9); color: white; text-align: center; padding: 2rem; position: relative; }
+.schedule-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; margin: 20px 0; }
+.schedule-table th { background: #3498db; color: white; padding: 12px; }
+.schedule-table td { padding: 10px; border-bottom: 1px solid #eee; text-align: center; }
+.time-col { font-weight: bold; color: #e74c3c; width: 80px; }
+.routine-card { border-left: 5px solid #3498db; background: #f0f7ff; padding: 20px; margin-bottom: 15px; border-radius: 0 10px 10px 0; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</a>
+        <h1><i class="fas fa-clock"></i> Режим и быт отряда</h1>
+        <p>Организация жизни, гигиены и дисциплины</p>
+    </header>
+
+    <main class="container content-page">
+        
+        <section class="routine-card">
+            <h2><i class="fas fa-calendar-alt"></i> Типовой режим дня</h2>
+            <p>Ориентировочный график (может меняться в зависимости от погоды и возраста):</p>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Время</th>
+                        <th>Мероприятие</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="time-col">08:00</td><td>Подъем вожатых, летучка</td></tr>
+                    <tr><td class="time-col">08:30</td><td>Общий подъем, зарядка</td></tr>
+                    <tr><td class="time-col">09:00</td><td>Завтрак, уборка комнат</td></tr>
+                    <tr><td class="time-col">10:00</td><td>Утренняя линейка, старт дел</td></tr>
+                    <tr><td class="time-col">13:30</td><td>Обед</td></tr>
+                    <tr><td class="time-col">14:00</td><td>Тихий час (время отдыха)</td></tr>
+                    <tr><td class="time-col">16:00</td><td>Полдник</td></tr>
+                    <tr><td class="time-col">16:30</td><td>Общелагерные или отрядные КТД</td></tr>
+                    <tr><td class="time-col">19:00</td><td>Ужин</td></tr>
+                    <tr><td class="time-col">20:00</td><td>Вечернее мероприятие, дискотека</td></tr>
+                    <tr><td class="time-col">21:30</td><td>Вечерний огонек (свечка)</td></tr>
+                    <tr><td class="time-col">22:00</td><td>Подготовка к отбою, гигиена</td></tr>
+                    <tr><td class="time-col">22:30</td><td>Общий отбой</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="routine-card" style="border-left-color: #2ecc71; background: #f0fff4;">
+            <h2 style="color: #27ae60;"><i class="fas fa-soap"></i> Гигиена и самообслуживание</h2>
+            <ul>
+                <li><strong>Личная гигиена:</strong> Контроль чистки зубов и умывания. В первые дни вожатый присутствует в умывальниках.</li>
+                <li><strong>Душ:</strong> Минимум 1-2 раза в неделю + после спорта. Помощь младшим в сборе вещей.</li>
+                <li><strong>Личные вещи:</strong> Запрет на использование чужих расчесок и щеток.</li>
+            </ul>
+        </section>
+
+        <section class="routine-card" style="border-left-color: #9b59b6; background: #faf5ff;">
+            <h2 style="color: #8e44ad;"><i class="fas fa-bed"></i> Порядок в комнатах</h2>
+            <ul>
+                <li><strong>Кровати:</strong> Заправляются по единому стандарту после проветривания.</li>
+                <li><strong>Чистота:</strong> Никакой еды в тумбочках! Весь мусор — в баки.</li>
+                <li><strong>Одежда:</strong> Грязные вещи складываются отдельно, чистые — аккуратно в шкаф.</li>
+            </ul>
+        </section>
+
+        <section class="routine-card" style="border-left-color: #f39c12; background: #fffaf0;">
+            <h2 style="color: #d35400;"><i class="fas fa-gavel"></i> Законы лагеря</h2>
+            <div style="margin-top: 10px;">
+                <span class="law-badge">Закон 0-0 (Точность)</span>
+                <span class="law-badge">Закон территории</span>
+                <span class="law-badge">Закон правой руки</span>
+                <span class="law-badge">Закон зелёного друга</span>
+                <span class="law-badge">Закон леса</span>
+            </div>
+            <p style="margin-top:15px; font-size: 0.9rem;">Используйте систему <strong>ЧТП</strong> (Чередование Творческих Поручений) для дежурства.</p>
+        </section>
+
+        <div class="important-note">
+            <i class="fas fa-user-shield"></i> <strong>Важно для вожатого:</strong> Вы ложитесь спать только тогда, когда убедились, что последний ребенок в отряде заснул. Личный пример — лучший способ приучить детей к режиму!
+        </div>
+
+    </main>
+
+
+
+</body>
+</html>

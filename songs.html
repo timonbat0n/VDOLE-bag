@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Песни - Вожатский чемоданчик</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .song-category { margin-bottom: 40px; }
+        .song-category h2 { 
+            color: #f1c40f; 
+            border-bottom: 2px solid #f1c40f; 
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Список названий */
+        .songs-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .song-name-tag {
+            background: #fff9e6;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            border: 1px solid #fcebb6;
+            color: #795548;
+        }
+
+        /* Тексты песен */
+        .song-card {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .song-card::before {
+            content: "\f001";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 3rem;
+            opacity: 0.1;
+            color: white;
+        }
+        .song-card h3 { color: #f1c40f; margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .lyrics { white-space: pre-line; line-height: 1.8; font-family: 'Courier New', Courier, monospace; font-size: 1rem; }
+        
+        .chorus { font-style: italic; border-left: 3px solid #f1c40f; padding-left: 15px; margin: 10px 0; }
+        
+        .military { background: #3e4e3b; } /* Зеленый оттенок для строевых */
+        .military h3 { color: #9effa9; }
+    </style>
+</head>
+<body>
+
+    <header style="background: linear-gradient(135deg, #f1c40f, #f39c12);">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</a>
+        <h1><i class="fas fa-guitar"></i> Песенник вожатого</h1>
+        <p>От лирики у костра до бодрого марша</p>
+    </header>
+
+    <main class="container content-page">
+
+        <section class="song-category">
+            <h2><i class="fas fa-fire"></i> Песни у костра</h2>
+            <p>Список популярных лирических композиций для огоньков:</p>
+            <div class="songs-list-grid">
+                <div class="song-name-tag">Алые паруса</div>
+                <div class="song-name-tag">Изгиб гитары желтой</div>
+                <div class="song-name-tag">Милая моя</div>
+                <div class="song-name-tag">Вальс в ритме дождя</div>
+                <div class="song-name-tag">Ты моё дыхание</div>
+                <div class="song-name-tag">Замыкая круг</div>
+                <div class="song-name-tag">Александра</div>
+                <div class="song-name-tag">Люди идут по свету</div>
+                <div class="song-name-tag">Пять ребят</div>
+                <div class="song-name-tag">Резиновый ежик</div>
+            </div>
+        </section>
+
+        <section class="song-category">
+            <h2><i class="fas fa-hands-helping"></i> О дружбе (Тексты)</h2>
+            
+            <div class="song-card">
+                <h3>Когда мои друзья со мной</h3>
+                <div class="lyrics">Если с другом вышел в путь, веселей дорога!
+                Без друзей меня — чуть-чуть, а с друзьями много!
+                <div class="chorus">Что мне снег, что мне зной, 
+                Что мне дождик проливной, 
+                Когда мои друзья со мной!</div>
+                На медведя я, друзья, выйду без испуга, 
+                Если с другом буду я, а медведь — без друга!</div>
+            </div>
+
+            <div class="song-card">
+                <h3>Батарейка</h3>
+                <div class="lyrics">Холодный ветер с дождём усилился стократно. 
+                Всё говорит об одном, что нет пути обратно. 
+                Что ты не мой Лопушок, а я не твой Андрейка, 
+                Что у любви у нашей села батарейка. 
+                <div class="chorus">Оо ия иё Батарейка!</div>
+                И вроде всё как всегда — всё те же чашки ложки, 
+                Всё та же в кране вода, всё тот же стул без ножки. 
+                Лишь у любви у нашей села Батарейка.</div>
+            </div>
+
+            <div class="song-card">
+                <h3>Ты, да я, да мы с тобой!</h3>
+                <div class="lyrics">Здорово, когда на свете есть друзья. 
+                Если б жили все в одиночку, то уже давно на кусочки 
+                Развалилась бы, наверное, земля.
+                <div class="chorus">Нас не разлучит ничто и никогда. 
+                Даже если мы расстаёмся, дружба всё равно остаётся, 
+                Дружба остаётся с нами навсегда.</div></div>
+            </div>
+        </section>
+
+        <section class="song-category">
+            <h2><i class="fas fa-shining"></i> Строевые песни</h2>
+            
+            <div class="song-card military">
+                <h3>У солдата выходной</h3>
+                <div class="lyrics">У солдата выходной, пуговицы в ряд 
+                Ярче солнечного дня золотом горят. 
+                <div class="chorus">Идет солдат по городу по незнакомой улице, 
+                И от улыбок девичьих вся улица светла.</div></div>
+            </div>
+
+            <div class="song-card military">
+                <h3>Три танкиста</h3>
+                <div class="lyrics">На границе тучи ходят хмуро, 
+                Край суровый тишиной объят. 
+                У высоких берегов Амура часовые Родины стоят.
+                Там живут — и песня в том порука — 
+                Три танкиста, три веселых друга!</div>
+            </div>
+        </section>
+
+        <div class="important-note">
+            <i class="fas fa-volume-up"></i> <strong>Совет:</strong> Если забыли мелодию, эти песни легко найти в любом стриминге. Главное — петь душой, тогда и отряд подхватит!
+        </div>
+
+    </main>
+
+
+</body>
+</html>

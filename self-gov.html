@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Самоуправление - Вожатский чемоданчик</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+       header { background: linear-gradient(135deg, #2ecc71, #27ae60); color: white; text-align: center; padding: 2rem; position: relative; }
+.roles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0; }
+.role-item { background: white; padding: 15px; border-radius: 15px; text-align: center; border-bottom: 3px solid #2ecc71; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.role-item i { font-size: 2rem; color: #2ecc71; margin-bottom: 10px; }
+.algo-step { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; background: #f0fff4; padding: 10px; border-radius: 10px; }
+.step-num { background: #27ae60; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</a>
+        <h1><i class="fas fa-users-cog"></i> Самоуправление в отряде</h1>
+        <p>Совместное управление жизнью коллектива</p>
+    </header>
+
+    <main class="container content-page">
+        
+        <blockquote>
+            Самоуправление — это не когда дети делают всё сами, а когда вожатый и дети действуют вместе ради общей цели.
+        </blockquote>
+
+        <section class="gov-card">
+            <h2><i class="fas fa-sync-alt"></i> 1. Фундамент: ЧТП</h2>
+            <p><strong>Чередование Творческих Поручений</strong> — это механика смены ролей:</p>
+            <ul>
+                <li><strong>Деление:</strong> Отряд разбивается на «экипажи» или «звенья».</li>
+                <li><strong>Цикличность:</strong> Смена ролей каждые 3 дня.</li>
+                <li><strong>Группы:</strong> Порядок, Досуг, Сюрпризы, Информация, Спорт.</li>
+            </ul>
+        </section>
+
+        <section class="gov-card" style="border-left-color: #3498db; background: #f0f7ff;">
+            <h2 style="color: #2980b9;"><i class="fas fa-sitemap"></i> 2. Структура и роли</h2>
+            <div class="roles-grid">
+                <div class="role-item">
+                    <i class="fas fa-star"></i>
+                    <div><strong>Командир отряда</strong><br><small>Связь с администрацией</small></div>
+                </div>
+                <div class="role-item">
+                    <i class="fas fa-user-friends"></i>
+                    <div><strong>Совет дел</strong><br><small>Творческий штаб</small></div>
+                </div>
+                <div class="role-item">
+                    <i class="fas fa-thumbtack"></i>
+                    <div><strong>Инициативные группы</strong><br><small>Временные органы под проект</small></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gov-card" style="border-left-color: #f39c12; background: #fffaf0;">
+            <h2 style="color: #d35400;"><i class="fas fa-lightbulb"></i> 3. Работа с лидерами</h2>
+            <ul>
+                <li><strong>Выявление:</strong> Наблюдайте, к кому дети обращаются за советом в первые 2 дня.</li>
+                <li><strong>Типы:</strong> Формальные (командиры) и неформальные (душа компании).</li>
+                <li><strong>Конструктив:</strong> Если лидер «негативный», дайте ему ответственное задание, где он сможет проявить власть во благо.</li>
+            </ul>
+        </section>
+
+        <section class="gov-card" style="border-left-color: #9b59b6; background: #faf5ff;">
+            <h2 style="color: #8e44ad;"><i class="fas fa-tasks"></i> 4. Алгоритм деятельности</h2>
+            <div class="algo-step"><div class="step-num">1</div> <div><strong>Планирование:</strong> Аукцион идей или «разведка дел».</div></div>
+            <div class="algo-step"><div class="step-num">2</div> <div><strong>Подготовка:</strong> Формирование групп и распределение задач.</div></div>
+            <div class="algo-step"><div class="step-num">3</div> <div><strong>Проведение:</strong> Реализация проекта.</div></div>
+            <div class="algo-step"><div class="step-num">4</div> <div><strong>Анализ:</strong> Рефлексия на вечерней свечке.</div></div>
+        </section>
+
+        <div class="important-note">
+            <i class="fas fa-exclamation-circle"></i> <strong>Совет вожатому:</strong> Делегируйте полномочия поэтапно. Пусть собрание ведет дежурный командир, а вы лишь направляйте процесс со стороны.
+        </div>
+
+    </main>
+
+
+
+</body>
+</html>

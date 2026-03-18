@@ -1,0 +1,252 @@
+/* Основные переменные и сброс настроек */
+:root {
+    --primary-red: #e74c3c;
+    --dark-red: #c0392b;
+    --bg-light: #f8f9fa;
+    --text-main: #2c3e50;
+    --white: #ffffff;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light);
+    margin: 0;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Шапка сайта (Header) */
+header {
+    background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    box-shadow: 0 4px 20px rgba(192, 57, 43, 0.3);
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+header p {
+    margin: 0.5rem 0 0;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Кнопка "Назад" на внутренних страницах */
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px 18px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-btn:hover {
+    background: rgba(0, 0, 0, 0.4);
+    transform: translateX(-5px);
+}
+
+/* Контейнер */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+/* Главное меню (Сетка карточек) */
+.grid-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    text-decoration: none;
+    background: var(--white);
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card i {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin: 10px 0 0;
+    font-size: 1.15rem;
+    color: #34495e;
+}
+
+/* Цвета иконок в карточках */
+.card-red i { color: #e74c3c; }
+.card-blue i { color: #3498db; }
+.card-green i { color: #2ecc71; }
+.card-orange i { color: #f39c12; }
+.card-purple i { color: #9b59b6; }
+.card-yellow i { color: #f1c40f; }
+.card-teal i { color: #1abc9c; }
+
+/* Оформление контента на внутренних страницах */
+.content-page {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+}
+
+.safety-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 5px solid;
+}
+
+.safety-section ul {
+    padding-left: 20px;
+}
+
+.safety-section li {
+    margin-bottom: 10px;
+}
+
+/* Бейджи и заметки */
+.badge {
+    display: inline-block;
+    background: var(--dark-red);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.important-note {
+    background: #fff9db;
+    border: 1px solid #ffe066;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9rem;
+    color: #95a5a6;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 600px) {
+    header { padding: 4rem 1rem 2rem; }
+    .content-page { padding: 20px; }
+    header h1 { font-size: 1.5rem; }
+}
+/* --- СТИЛИ ДЛЯ СТРАНИЦЫ ЧТП --- */
+
+/* Контейнер для таблицы с прокруткой на мобилках */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.chtp-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    min-width: 500px; /* Чтобы таблица не слипалась на узких экранах */
+}
+
+.chtp-table th {
+    background: #00bcd4; /* Бирюзовый цвет для ЧТП */
+    color: white;
+    padding: 18px;
+    text-align: left;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.chtp-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #edf2f7;
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+/* Выделение названия группы */
+.group-name {
+    font-weight: 700;
+    color: #00838f;
+    width: 30%;
+    background: #f0fbff;
+    border-right: 2px solid #e0f7fa;
+}
+
+/* Описание обязанностей */
+.duty-desc {
+    color: #4a5568;
+    font-size: 0.95rem;
+}
+
+/* Эффект при наведении на строку */
+.chtp-table tr:hover {
+    background-color: #faffff;
+    transition: background 0.2s ease;
+}
+
+/* Карточка ЧТП на главной (дополнительный цвет) */
+.card-cyan {
+    border-bottom: 5px solid #00bcd4;
+}
+
+.card-cyan i {
+    color: #00bcd4;
+}
+
+/* Адаптивная правка для маленьких экранов */
+@media (max-width: 600px) {
+    .chtp-table th, .chtp-table td {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+}

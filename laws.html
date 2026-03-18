@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правовая база - Вожатский чемоданчик</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Базовые стили для мобильной версии */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Твой присланный стиль для хедера */
+        header { 
+            background: linear-gradient(135deg, #34495e, #2c3e50); 
+            color: white; 
+            text-align: center; 
+            padding: 2rem; 
+            position: relative; 
+        }
+
+        header h1 { margin: 10px 0 5px; font-size: 1.5rem; }
+        header p { margin: 0; opacity: 0.8; font-size: 0.9rem; }
+
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Твой присланный стиль для карточек законов */
+        .law-item { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 12px; 
+            margin-bottom: 15px; 
+            border-left: 5px solid #34495e; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+        }
+
+        .law-item h2 { 
+            color: #2c3e50; 
+            font-size: 1.1rem; 
+            margin-top: 0; 
+            margin-bottom: 10px;
+        }
+
+        .law-item p { 
+            font-size: 0.9rem; 
+            color: #7f8c8d; 
+            margin-bottom: 10px; 
+        }
+
+        .law-item ul {
+            margin: 10px 0 0;
+            padding-left: 20px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .law-item li { margin-bottom: 5px; }
+
+        /* Твой присланный стиль для важных заметок */
+        .law-important { 
+            background: #ebf2f7; 
+            border: 1px solid #34495e; 
+            padding: 15px; 
+            border-radius: 10px; 
+            font-weight: bold; 
+            color: #2c3e50; 
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #34495e;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #95a5a6;
+            font-size: 0.8rem;
+        }
+
+        section h2 {
+            font-size: 1.2rem;
+            color: #34495e;
+            border-bottom: 2px solid #34495e;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</a>
+        <h1><i class="fas fa-balance-scale"></i> Правовая база</h1>
+        <p>Нормативные акты вожатого 2026</p>
+    </header>
+
+    <main class="container">
+        
+        <div class="law-important">
+            <i class="fas fa-shield-alt" style="font-size: 1.5rem;"></i>
+            <span>Нормативная база — это свод правил для защиты детей и самого вожатого от неправомерных обвинений.</span>
+        </div>
+
+        <section>
+            <h2>Уровни документов</h2>
+            <div class="law-item">
+                <p><strong>Международный:</strong> Конвенция ООН о правах ребенка</p>
+                <p><strong>Федеральный:</strong> Конституция РФ, ФЗ, Указы Президента.</p>
+                <p><strong>Ведомственный:</strong> СанПиН, Приказы МинПросвещения.</p>
+                <p><strong>Локальный:</strong> Устав, Должностная инструкция, ПВР.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Ключевые Законы</h2>
+            <div class="law-item">
+                <span class="badge">124-ФЗ</span>
+                <h2>Об основных гарантиях прав ребенка</h2>
+                <p>Запрещает дискриминацию, гарантирует защиту от вредной информации. Ст. 14.1 — организация отдыха.</p>
+            </div>
+
+            <div class="law-item">
+                <span class="badge">273-ФЗ</span>
+                <h2>Об Образовании в РФ</h2>
+                <p>Ст. 34 — права на уважение достоинства и защиту от насилия. Ст. 43 — обязанности детей соблюдать дисциплину.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>СанПиН (Кратко)</h2>
+            <div class="law-item" style="border-left-color: #e67e22;">
+                <ul>
+                    <li><strong>Питание:</strong> Сопровождение в столовую, мытье рук.</li>
+                    <li><strong>Территория:</strong> Запрет нахождения в тех. зонах и подсобках.</li>
+                    <li><strong>Гигиена:</strong> Контроль смены одежды и душа.</li>
+                    <li><strong>Питье:</strong> Доступ к воде 24/7.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Ответственность</h2>
+            <div class="law-item" style="border-left-color: #e74c3c;">
+                <p><strong>Дисциплинарная:</strong> Выговор, увольнение (за опоздания, сон).</p>
+                <p><strong>Материальная:</strong> Только за имущество лагеря. <em>За детей материально не отвечаете!</em></p>
+                <p><strong>Уголовная:</strong> Ст. 125 (Оставление в опасности), Ст. 156 (Жестокое обращение).</p>
+            </div>
+        </section>
+
+        <div class="law-important">
+            <i class="fas fa-check-circle"></i>
+            <span>В 1 день подпишите: ПВР, Должностную, Инструкцию по ТБ и график.</span>
+        </div>
+
+    </main>
+
+
+</body>
+</html>
