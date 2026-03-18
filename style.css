@@ -13,11 +13,13 @@
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--bg-light);
     margin: 0;
-    color: var(--text-main);
-    line-height: 1.6;
+    /* Цвет слоновой кости / старой бумаги */
+    background-color: #fdf6e3; 
+    /* Добавляем легкий узор (точки), как в блокнотах Bullet Journal */
+    background-image: radial-gradient(#d1d1d1 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-attachment: fixed;
 }
 
 /* Шапка сайта (Header) */
