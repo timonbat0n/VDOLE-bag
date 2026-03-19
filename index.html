@@ -286,5 +286,12 @@
         </svg>
         <div class="badge-icon"><i class="fas fa-campground"></i></div>
     </div>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js')
+            .then(() => console.log('Офлайн режим активирован!'))
+            .catch((err) => console.log('Ошибка:', err));
+    }
+</script>
 </body>
 </html>
