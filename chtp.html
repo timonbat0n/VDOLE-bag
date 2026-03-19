@@ -4,97 +4,280 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЧТП - Вожатский чемоданчик</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- БАЗОВЫЕ СТИЛИ --- */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f0f7f8;
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        /* --- ШАПКА --- */
+        header {
+            background: linear-gradient(135deg, #00bcd4, #0097a7);
+            padding: 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 0 0 30px 30px;
+            text-align: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.5);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background: white;
+            color: #0097a7;
+            transform: translateX(-5px);
+        }
+
+        /* --- КОНТЕНТ --- */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .info-block {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 8px solid #00bcd4;
+        }
+
+        h2 {
+            color: #00838f;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.4rem;
+            margin: 40px 0 20px;
+        }
+
+        /* ТАБЛИЦА МАТРИЦЫ */
+        .chtp-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .chtp-table th {
+            background: #00bcd4;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .chtp-table td {
+            padding: 15px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .group-name {
+            font-weight: 800;
+            color: #0097a7;
+            width: 160px;
+        }
+
+        .duty-desc {
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        /* КАРТОЧКИ ФУНКЦИЙ */
+        .functions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .func-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            border-bottom: 4px solid #00bcd4;
+            transition: 0.3s;
+        }
+
+        .func-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .func-card i {
+            font-size: 2.5rem;
+            color: #00bcd4;
+            margin-bottom: 15px;
+        }
+
+        .func-card h4 {
+            margin: 0 0 10px 0;
+            color: #00838f;
+        }
+
+        .func-card p {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* ВАЖНАЯ ЗАМЕТКА */
+        .important-note {
+            background: #e0f7fa;
+            border-left: 8px solid #00bcd4;
+            padding: 25px;
+            border-radius: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .important-note i {
+            font-size: 2rem;
+            color: #0097a7;
+        }
+
+        .important-note p {
+            margin: 0;
+            font-family: 'Caveat', cursive;
+            font-size: 1.4rem;
+            color: #006064;
+        }
+
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 600px) {
+            .header-content span { display: none; }
+            .chtp-table { font-size: 0.85rem; }
+            .group-name { width: 100px; }
+        }
+    </style>
 </head>
 <body>
 
-    <header style="background: linear-gradient(135deg, #00bcd4, #0097a7);">
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</a>
-        <h1><i class="fas fa-sync-alt"></i> Система ЧТП</h1>
-        <p>Фундамент самоуправления в отряде</p>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-chevron-left"></i> <span>Назад</span>
+            </a>
+            <h1><i class="fas fa-sync-alt"></i> Система ЧТП</h1>
+            <div style="width: 80px;"></div>
+        </div>
     </header>
 
-    <main class="container content-page">
+    <main class="container">
         
         <section class="info-block">
-            <p><strong>ЧТП (Чередование Творческих Поручений)</strong> — это не просто дежурство, а система соуправления вожатых и детей. Она позволяет делегировать задачи и развивать самостоятельность каждого ребенка.</p>
+            <p><strong>ЧТП (Чередование Творческих Поручений)</strong> — это методика сменяемого самоуправления. Это способ сделать так, чтобы каждый ребёнок в отряде попробовал себя в разных ролях: от хозяйственника до организатора праздников.</p>
         </section>
 
-        <h2 style="color: #00838f;"><i class="fas fa-tools"></i> Организация системы</h2>
-        <div class="steps-container">
-            <div class="safety-section" style="border-left-color: #00bcd4; background: #f0fbff;">
-                <ul>
-                    <li><strong>Разделение на группы:</strong> Весь отряд делится на сменные микроколлективы.</li>
-                    <li><strong>Сменяемость ролей:</strong> Каждый ребенок должен успеть побывать во всех ролях.</li>
-                    <li><strong>Цикличность:</strong> Оптимальная смена обязанностей — <strong>раз в 3 дня</strong>.</li>
-                    <li><strong>Наглядность:</strong> Списки групп и задачи ОБЯЗАТЕЛЬНО вывешиваются в уголке.</li>
-                    <li><strong>Контроль:</strong> В первые 5–6 дней вожатый строго курирует работу. Итоги обсуждаются на анализе дня.</li>
-                </ul>
+        <h2><i class="fas fa-tasks"></i> Правила запуска</h2>
+        <div class="info-block" style="border-left-color: #0097a7; background: #f0fbff;">
+            <ul style="line-height: 1.8;">
+                <li><strong>Цикл:</strong> Смена ролей происходит каждые <strong>3 дня</strong>.</li>
+                <li><strong>Микрогруппы:</strong> Делим отряд на команды (звенья) по 5–7 человек.</li>
+                <li><strong>Наглядность:</strong> Матрица ЧТП всегда висит в отрядном уголке.</li>
+                <li><strong>Анализ:</strong> Каждую вечерку подводим итоги: что группа успела сделать?</li>
+            </ul>
+        </div>
+
+        <h2><i class="fas fa-clipboard-list"></i> Матрица поручений</h2>
+        <table class="chtp-table">
+            <thead>
+                <tr>
+                    <th>Группа</th>
+                    <th>Что они делают?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="group-name">🏠 Хозяева</td>
+                    <td class="duty-desc">Следит за чистотой комнат, порядком в чемоданной и проветриванием помещений.</td>
+                </tr>
+                <tr>
+                    <td class="group-name">🍴 Питание</td>
+                    <td class="duty-desc">Сервирует столы, контролирует мытьё рук перед едой и дежурит в столовой.</td>
+                </tr>
+                <tr>
+                    <td class="group-name">🎨 Дизайнеры</td>
+                    <td class="duty-desc">Оформляет уголок, готовит реквизит для сценок и выпускает «молнии» с новостями.</td>
+                </tr>
+                <tr>
+                    <td class="group-name">⚽ Физорги</td>
+                    <td class="duty-desc">Проводят зарядку, следят за спортивным инвентарем и проводят матчи.</td>
+                </tr>
+                <tr>
+                    <td class="group-name">✨ Сюрпризники</td>
+                    <td class="duty-desc">Создают «атмосферу»: делают тайные подарки, готовят поздравления для именинников.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2><i class="fas fa-brain"></i> Зачем это нужно?</h2>
+        <div class="functions-grid">
+            <div class="func-card">
+                <i class="fas fa-user-plus"></i>
+                <h4>Активация</h4>
+                <p>Вовлекает даже самых скромных детей в жизнь коллектива через понятные задачи.</p>
+            </div>
+            <div class="func-card">
+                <i class="fas fa-users"></i>
+                <h4>Лидерство</h4>
+                <p>Формирует ответственное отношение к порученному делу и развивает навыки общения.</p>
+            </div>
+            <div class="func-card">
+                <i class="fas fa-search"></i>
+                <h4>Анализ</h4>
+                <p>Учит оценивать результаты своей работы и предлагать улучшения для всего отряда.</p>
             </div>
         </div>
 
-        <h2 style="color: #00838f;"><i class="fas fa-clipboard-list"></i> Пример матрицы поручений</h2>
-        <div class="table-responsive">
-            <table class="chtp-table">
-                <thead>
-                    <tr>
-                        <th>Группа</th>
-                        <th>Обязанности и функции</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="group-name">🏠 Хозяева</td>
-                        <td class="duty-desc">Контроль чистоты в комнатах, проветривание, порядок в чемоданных.</td>
-                    </tr>
-                    <tr>
-                        <td class="group-name">🍴 Питание</td>
-                        <td class="duty-desc">Сервировка столов, контроль гигиены (мытье рук), дежурство в столовой.</td>
-                    </tr>
-                    <tr>
-                        <td class="group-name">🎨 Дизайнеры</td>
-                        <td class="duty-desc">Оформление уголка, подготовка реквизита, выпуск молний и газет.</td>
-                    </tr>
-                    <tr>
-                        <td class="group-name">⚽ Физорги</td>
-                        <td class="duty-desc">Проведение зарядки, инвентарь для игр, организация матчей.</td>
-                    </tr>
-                    <tr>
-                        <td class="group-name">✨ Сюрпризники</td>
-                        <td class="duty-desc">Тайные подарки, поздравления именинников, создание настроения.</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="important-note">
+            <i class="fas fa-lightbulb"></i>
+            <p><strong>Совет:</strong> Не превращай ЧТП в каторгу. Хвали детей за креатив! Пусть «Питание» придумает девиз столовой, а «Хозяева» — конкурс на самую смешную заправку кровати.</p>
         </div>
 
-        <h2 style="color: #00838f; margin-top: 30px;"><i class="fas fa-brain"></i> Функции ЧТП</h2>
-        <div class="grid-menu" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-            <div class="card" style="padding: 15px; min-height: auto;">
-                <i class="fas fa-user-plus" style="font-size: 1.5rem; color: #00bcd4;"></i>
-                <h4 style="margin: 10px 0;">Самоактивизация</h4>
-                <p style="font-size: 0.85rem;">Приобщение всех детей к решению реальных проблем отряда.</p>
-            </div>
-            <div class="card" style="padding: 15px; min-height: auto;">
-                <i class="fas fa-users" style="font-size: 1.5rem; color: #00bcd4;"></i>
-                <h4 style="margin: 10px 0;">Саморегулирование</h4>
-                <p style="font-size: 0.85rem;">Формирование актива, способного менять структуру коллектива.</p>
-            </div>
-            <div class="card" style="padding: 15px; min-height: auto;">
-                <i class="fas fa-search" style="font-size: 1.5rem; color: #00bcd4;"></i>
-                <h4 style="margin: 10px 0;">Самоконтроль</h4>
-                <p style="font-size: 0.85rem;">Постоянный анализ своей деятельности и поиск лучших решений.</p>
-            </div>
-        </div>
-
-        <div class="important-note" style="border-color: #00bcd4; background: #e0f7fa;">
-            <i class="fas fa-lightbulb" style="color: #00838f;"></i> 
-            <div>
-                <strong>Заметка вожатому:</strong> ЧТП эффективнее постоянных органов управления, так как обеспечивает динамику и вовлеченность каждого. Развивайте систему через ситуацию выбора!
-            </div>
-        </div>
     </main>
 
+    <footer style="text-align: center; padding: 40px; font-family: 'Caveat'; color: #bdc3c7; font-size: 1.5rem;">
+        тимон • 2026
+    </footer>
 
 </body>
 </html>
