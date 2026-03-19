@@ -3,88 +3,483 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Обо мне - Вожатский чемоданчик</title>
+    <title>Тимофей У. | Pin Board</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fdfdfd; color: #333; }
-        header { 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-            color: white; padding: 40px 20px; text-align: center; position: relative; 
-        }
-        .back-btn { position: absolute; left: 20px; top: 20px; color: white; text-decoration: none; }
-        
-      
-.profile-img {
-    width: 120px; height: 120px;
-    border-radius: 50%; border: 4px solid white;
-    background: #eee; margin: 0 auto 15px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 3rem; color: #764ba2;
-    overflow: hidden; 
+        /* --- ГЛОБАЛЬНЫЕ НАСТРОЙКИ PIN BOARD --- */
+
+/* Фон - Пробковая доска */
+.pin-board-body {
+    background-color: #d2b48c; /* Цвет пробки по умолчанию */
+    /* ЗАМЕНИ НА СВОЮ КАРТИНКУ: */
+    /* background-image: url('img/cork-bg.jpg'); */
+    
+    /* CSS-генератор текстуры пробки (если нет картинки) */
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(139, 69, 19, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 0% 0%, rgba(160, 82, 45, 0.1) 1px, transparent 1px);
+    background-size: 15px 15px, 20px 20px;
+    
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    color: #333;
 }
 
-
-.profile-img img {
-    width: 100%;       /* Фото займет всю ширину круга */
-    height: 100%;      /* Фото займет всю высоту круга */
-    object-fit: cover; /* Свойство, чтобы фото не сплющилось, а красиво обрезалось по центру */
+/* Обертка для карточек */
+.pin-board-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 1000px; /* Фиксированная высота для раскидывания */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-        .container { max-width: 700px; margin: -30px auto 30px; padding: 0 15px; }
-        .info-card { 
-            background: white; padding: 25px; border-radius: 15px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 20px; 
-        }
-        
-        h2 { color: #764ba2; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-top: 0; }
-        .credo { font-style: italic; font-size: 1.1rem; text-align: center; color: #555; }
-        
-        .contact-list { list-style: none; padding: 0; }
-        .contact-list li { margin: 10px 0; display: flex; align-items: center; gap: 10px; }
-        .contact-list i { color: #667eea; width: 20px; }
+/* --- ОБЩИЕ СТИЛИ ЭЛЕМЕНТОВ НА ДОСКЕ --- */
+
+/* Базовый класс для всего, что приколото */
+.pin-item {
+    position: absolute;
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.3); /* Глубокая тень для 3D */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Эффект при наведении - карточка "всплывает" */
+.pin-item:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    box-shadow: 10px 20px 40px rgba(0,0,0,0.4);
+    z-index: 200 !important; /* Всегда сверху при наведении */
+}
+
+/* Канцелярская кнопка */
+.thumbtack {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.8rem;
+    filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.3));
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* Цвета кнопок */
+.red-pin i { color: #e74c3c; }
+.blue-pin i { color: #3498db; }
+.yellow-pin i { color: #f1c40f; }
+.green-pin i { color: #2ecc71; }
+
+/* --- ТИПЫ КАРТОЧЕК --- */
+
+/* 1. Polaroid */
+.polaroid {
+    background: #ffffff;
+    padding: 10px 10px 30px 10px;
+    border-radius: 2px;
+    width: 250px;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border: 1px solid #eee;
+}
+
+.polaroid .caption {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+    margin: 15px 0 0 0;
+    line-height: 1;
+}
+
+/* 2. Клочок бумаги (Статус) */
+.paper-note {
+    background: #fff9db; /* Желтая бумага */
+    padding: 25px;
+    border-radius: 4px;
+    width: 280px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.paper-note h3 {
+    font-size: 1.1rem;
+    color: #e74c3c;
+    margin: 0 0 10px 0;
+}
+
+.paper-note p {
+    font-style: italic;
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.paper-note .date {
+    font-family: 'Caveat', cursive;
+    text-align: right;
+    color: #333;
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+/* 3. Лист из блокнота (Досье) */
+.notebook-page {
+    background: #ffffff;
+    background-image: linear-gradient(#e1e1e1 1px, transparent 1px);
+    background-size: 100% 25px; /* Полоски */
+    padding: 30px;
+    border-radius: 2px;
+    width: 320px;
+    line-height: 25px; /* Совпадает с полосками */
+}
+
+.notebook-page h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 0 0 15px 0;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.notebook-page ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notebook-page li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #555;
+    border-bottom: 1px solid #eee; /* Линия подчеркивания */
+}
+
+.notebook-page li i {
+    color: #e74c3c;
+    font-size: 1rem;
+}
+
+/* --- ПОЗИЦИОНИРОВАНИЕ (Магия раскидывания) --- */
+
+.main-photo {
+    top: 50px;
+    left: 400px;
+    transform: rotate(-3deg);
+    width: 300px;
+    z-index: 10;
+}
+.main-photo img { height: 260px; }
+
+.status-note {
+    top: 150px;
+    left: 80px;
+    transform: rotate(5deg);
+    z-index: 20;
+}
+
+.dossier-note {
+    top: 350px;
+    right: 80px;
+    transform: rotate(-2deg);
+    z-index: 100; /* Досье всегда сверху */
+}
+
+.detail-photo {
+    top: 550px;
+    left: 250px;
+    transform: rotate(4deg);
+    width: 200px;
+    z-index: 5;
+}
+
+/* --- СТИКЕРЫ (Без кнопок) --- */
+
+.stickers-group {
+    position: absolute;
+    bottom: 100px;
+    left: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 50;
+}
+
+.sticker {
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 4px solid #fff; /* Белый контур */
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.tg-sticker { background: #24A1DE; transform: rotate(-5deg); }
+.sun-vibe-sticker { background: #f1c40f; color: #333; transform: rotate(8deg); }
+
+.sticker:hover { transform: scale(1.1) rotate(0deg); }
+
+/* --- АДАПТИВНОСТЬ (Для мобилок) --- */
+
+@media (max-width: 900px) {
+    .pin-board-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        height: auto; /* Отменяем фиксированную высоту */
+        padding: 20px;
+    }
+    
+    .pin-item, .stickers-group {
+        position: relative; /* Отменяем абсолют */
+        top: 0 !important; left: 0 !important; right: 0 !important;
+        transform: rotate(0deg) !important;
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .main-photo { width: 100%; }
+    .thumbtack { font-size: 1.5rem; top: -10px; }
+}
+/* --- СТИЛИЗАЦИЯ КНОПКИ НАЗАД --- */
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px; /* Отступы от краев шапки */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.back-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: #ffffff;
+    color: #e74c3c; /* Твой фирменный красный */
+    border: 2px solid #e74c3c; /* Та самая потерянная обводочка */
+    border-radius: 50px; /* Скругленная кнопка-капсула */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.back-link i {
+    font-size: 0.8rem;
+}
+
+/* Эффект при наведении */
+.back-link:hover {
+    background: #e74c3c;
+    color: #ffffff;
+    transform: translateX(-5px); /* Небольшой сдвиг влево */
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+}
+
+/* Чтобы заголовок не наезжал на кнопку на маленьких экранах */
+@media (max-width: 600px) {
+    .header-content {
+        padding: 0 15px;
+        flex-direction: row; /* Оставляем в ряд */
+    }
+    
+    .back-link span {
+        display: none; /* На телефонах оставляем только стрелочку, чтобы не теснить заголовок */
+    }
+    
+    .back-link {
+        padding: 8px 12px;
+    }
+}
+/* --- ГАДАЛКА: СТИЛИ И АНИМАЦИЯ --- */
+
+.fortune-card {
+    top: 650px;
+    right: 400px;
+    width: 180px;
+    height: 180px;
+    perspective: 1000px; /* Глубина для 3D */
+    cursor: pointer;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.fortune-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Класс, который будет добавлять JS при клике */
+.fortune-inner.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.fortune-front, .fortune-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Скрывает заднюю сторону при повороте */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* Лицевая сторона (Конверт) */
+.fortune-front {
+    background: #ffffff;
+    border: 2px dashed #ccc;
+}
+
+.fortune-front i { font-size: 2.5rem; color: #f1c40f; margin-bottom: 10px; }
+.fortune-front p { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9rem; margin: 0; }
+.fortune-front span { font-size: 0.6rem; color: #aaa; margin-top: 5px; }
+
+/* Обратная сторона (Предсказание) */
+.fortune-back {
+    background: #fff9db;
+    transform: rotateY(180deg);
+    border: 2px solid #f1c40f;
+}
+
+.fortune-back p {
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2d3436;
+}
+
+.fortune-back i { color: #f1c40f; opacity: 0.5; margin-top: 10px; }
     </style>
 </head>
-<body>
+<body class="pin-board-body">
 
-    <header>
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</a>
-        <div class="profile-img">
-    <img src="my_photo.jpg" alt="Уколов Тимофей"> 
-</div>
-<h1>Тимофей Уколов</h1>
-        <p>вожатый / диджей / а так же просто Тимон</p>
-    </header>
+    <div class="fireflies"></div> 
 
-    <main class="container">
+   <header class="memory-header">
+    <div class="header-content">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-chevron-left"></i> 
+            <span>В чемоданчик</span>
+        </a>
+        <h1 class="header-title">Мой Pin Board</h1>
+    </div>
+</header>
+
+    <main class="container pin-board-container">
         
-        <div class="info-card">
-            <h2><i class="fas fa-quote-left"></i> Моё кредо</h2>
-            <p class="credo">«Вожатый — это не работа, это состояние души и вечный поиск искры в каждом ребенке».</p>
+        <div class="pin-item polaroid main-photo">
+            <div class="thumbtack red-pin"><i class="fas fa-thumbtack"></i></div>
+            <img src="my_photo.jpg" alt="Тимофей">
+            <p class="caption">Тимофей У.</p>
         </div>
 
-        <div class="info-card">
-            <h2><i class="fas fa-star"></i> Опыт и достижения</h2>
+        <div class="pin-item paper-note status-note">
+            <div class="thumbtack blue-pin"><i class="fas fa-thumbtack"></i></div>
+            <h3><i class="fas fa-quote-left"></i> Вайб смены</h3>
+            <p>Сердце отдаю детям , а нервы - в коробочку».</p>
+            <p class="date">(нервы надо беречь)</p>
+        </div>
+<div class="pin-item fortune-card" onclick="flipFortune()">
+    <div class="thumbtack yellow-pin"><i class="fas fa-thumbtack"></i></div>
+    <div class="fortune-inner" id="fortune-inner">
+        <div class="fortune-front">
+            <i class="fas fa-envelope"></i>
+            <p>Предсказание <br>на смену</p>
+            <span>(нажми, чтобы открыть)</span>
+        </div>
+        <div class="fortune-back">
+            <p id="fortune-text">Загрузка...</p>
+            <i class="fas fa-magic"></i>
+        </div>
+    </div>
+</div>
+        <div class="pin-item notebook-page dossier-note">
+            <div class="thumbtack yellow-pin"><i class="fas fa-thumbtack"></i></div>
+            <h3><i class="fas fa-id-badge"></i> Досье вожатого</h3>
             <ul>
-                <li>Участник конкурса "Профессионалы" в компетенции : Воспитатель</li>
-                <li>Опыт работы:  3 смены в ДОЛ "«Сосновый Бор»"</li>
-                <li>Специализация: Диджеинг, гитара, программирование</li>
+                <li><i class="fas fa-star"></i> Опыт: 3 смены</li>
+                <li><i class="fas fa-guitar"></i> Гитара: Да, знаю аккорды</li>
+                <li><i class="fas fa-heart"></i> Суперсила: Знаю сленг детей</li>
+                <li><i class="fas fa-language"></i> Языки: Английский (B1)</li>
             </ul>
         </div>
 
-        <div class="info-card">
-            <h2><i class="fas fa-address-book"></i> Контакты</h2>
-            <ul class="contact-list">
-                <li><i class="fab fa-telegram"></i> @timoonbat</li>
-                <li><i class="fas fa-envelope"></i> i@tukolov.ru</li>
-                <li><i class="fas fa-phone"></i> +7 (900) 588-20-70</li>
-            </ul>
+        <div class="stickers-group">
+            <a href="https://t.me/timoonbat" class="sticker tg-sticker" target="_blank">
+                <i class="fab fa-telegram-plane"></i> @timoonbat
+            </a>
+            <div class="sticker sun-vibe-sticker">
+                <i class="fas fa-sun fa-spin"></i> Summer 2026
+            </div>
         </div>
+
+    
 
     </main>
 
-    <footer style="text-align: center; color: #999; font-size: 0.8rem; padding-bottom: 20px;">
-        ну вот такой я 
+    <footer class="pin-footer">
+        <p></p>
     </footer>
 
+    <script>
+        const fortunes = [
+    "Сегодня тихий час будет реально тихим!",
+    "Кто-то из детей подарит тебе фенечку.",
+    "На полдник дадут твою любимую булочку.",
+    "Твой отряд выиграет в вечернем шоу!",
+    "Запасись терпением, сегодня день самоуправления.",
+    "Вечером будет самая душевная свечка.",
+    "Твои нервы сегодня — кремень!",
+    "Сегодня ты услышишь: 'Ты лучший вожатый!'"
+];
+
+function flipFortune() {
+    const inner = document.getElementById('fortune-inner');
+    const textElement = document.getElementById('fortune-text');
+    
+    // Если карточка еще не перевернута, выбираем новую фразу
+    if (!inner.classList.contains('is-flipped')) {
+        const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+        textElement.innerText = randomFortune;
+    }
+    
+    // Переворачиваем
+    inner.classList.toggle('is-flipped');
+}
+    </script>
 </body>
 </html>
