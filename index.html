@@ -157,6 +157,52 @@
         font-size: 1.6rem; 
         color: #bdc3c7; 
     }
+
+    /* --- КРУГЛЫЙ БЕЙДЖ (ПЕЧАТЬ) --- */
+        .circle-badge {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 100px; /* Уменьшили размер, чтобы не мешал */
+            height: 100px;
+            z-index: 1000;
+            pointer-events: none; /* Чтобы не мешал кликать по карточкам */
+        }
+
+        .circle-badge svg {
+            width: 100%;
+            height: 100%;
+            animation: rotate-badge 15s infinite linear; /* Скорость вращения */
+        }
+
+        .circle-badge text {
+            font-family: 'Montserrat';
+            font-weight: 800;
+            font-size: 10px;
+            fill: #e74c3c; /* Цвет текста в тон хедеру */
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .badge-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            color: #e74c3c;
+        }
+
+        /* АНИМАЦИЯ ВРАЩЕНИЯ */
+        @keyframes rotate-badge {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Скрываем на мобилках, чтобы не перекрывал кнопки */
+        @media (max-width: 600px) {
+            .circle-badge { display: none; }
+        }
 </style>
 </head>
 
