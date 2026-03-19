@@ -21,6 +21,15 @@ body {
     background-size: 20px 20px;
     background-attachment: fixed;
 }
+font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3, .card h3 {
+    /* Для заголовков и карточек — Comfortaa (мягкий и дружелюбный) */
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700;
+}
 
 /* Шапка сайта (Header) */
 header {
