@@ -4,188 +4,229 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Правовая база - Вожатский чемоданчик</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* Базовые стили для мобильной версии */
+        /* --- БАЗОВЫЕ СТИЛИ --- */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            background: #f4f7f9;
             margin: 0;
-            padding: 0;
-            background-color: #f4f7f9;
-            color: #333;
+            color: #2c3e50;
+            line-height: 1.6;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Твой присланный стиль для хедера */
+        /* --- ШАПКА --- */
         header { 
             background: linear-gradient(135deg, #34495e, #2c3e50); 
             color: white; 
             text-align: center; 
-            padding: 2rem; 
-            position: relative; 
+            padding: 40px 20px; 
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        header h1 { margin: 10px 0 5px; font-size: 1.5rem; }
-        header p { margin: 0; opacity: 0.8; font-size: 0.9rem; }
-
-        .back-btn {
-            position: absolute;
-            left: 20px;
-            top: 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
             display: flex;
             align-items: center;
-            gap: 5px;
+            justify-content: space-between;
         }
 
-        /* Твой присланный стиль для карточек законов */
+        .back-link {
+            text-decoration: none;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background: white;
+            color: #2c3e50;
+        }
+
+        /* --- КОНТЕНТ --- */
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* ВАЖНЫЕ ЗАМЕТКИ */
+        .law-important { 
+            background: #ffffff; 
+            border-left: 6px solid #34495e; 
+            padding: 20px; 
+            border-radius: 15px; 
+            font-weight: 700; 
+            color: #2c3e50; 
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .law-important i { color: #34495e; font-size: 1.8rem; }
+
+        /* СЕКЦИИ И КАРТОЧКИ */
+        section h2 {
+            font-size: 1.3rem;
+            color: #34495e;
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .law-item { 
             background: white; 
-            padding: 20px; 
-            border-radius: 12px; 
-            margin-bottom: 15px; 
-            border-left: 5px solid #34495e; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+            padding: 25px; 
+            border-radius: 20px; 
+            margin-bottom: 20px; 
+            border-top: 4px solid #34495e; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            transition: 0.3s;
         }
 
-        .law-item h2 { 
+        .law-item:hover { transform: translateY(-3px); }
+
+        .law-item h3 { 
             color: #2c3e50; 
-            font-size: 1.1rem; 
-            margin-top: 0; 
-            margin-bottom: 10px;
-        }
-
-        .law-item p { 
-            font-size: 0.9rem; 
-            color: #7f8c8d; 
-            margin-bottom: 10px; 
-        }
-
-        .law-item ul {
-            margin: 10px 0 0;
-            padding-left: 20px;
-            font-size: 0.9rem;
-            color: #444;
-        }
-
-        .law-item li { margin-bottom: 5px; }
-
-        /* Твой присланный стиль для важных заметок */
-        .law-important { 
-            background: #ebf2f7; 
-            border: 1px solid #34495e; 
-            padding: 15px; 
-            border-radius: 10px; 
-            font-weight: bold; 
-            color: #2c3e50; 
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            font-size: 1.15rem; 
+            margin: 10px 0;
         }
 
         .badge {
             display: inline-block;
             background: #34495e;
             color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            margin-bottom: 8px;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-family: 'Fira+Code', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
         }
+
+        /* ЦВЕТОВЫЕ АКЦЕНТЫ */
+        .warning { border-top-color: #e74c3c; }
+        .warning .badge { background: #e74c3c; }
+        
+        .info { border-top-color: #e67e22; }
+        .info .badge { background: #e67e22; }
+
+        /* СПИСКИ */
+        ul { padding-left: 20px; margin: 15px 0; }
+        li { margin-bottom: 8px; font-size: 0.95rem; }
+        strong { color: #2c3e50; }
 
         footer {
             text-align: center;
-            padding: 20px;
-            color: #95a5a6;
-            font-size: 0.8rem;
+            padding: 40px;
+            color: #bdc3c7;
+            font-size: 0.9rem;
         }
 
-        section h2 {
-            font-size: 1.2rem;
-            color: #34495e;
-            border-bottom: 2px solid #34495e;
-            padding-bottom: 5px;
-            margin-top: 30px;
+        @media (max-width: 600px) {
+            .header-content h1 { font-size: 1.2rem; }
+            .back-link span { display: none; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</a>
-        <h1><i class="fas fa-balance-scale"></i> Правовая база</h1>
-        <p>Нормативные акты вожатого 2026</p>
+        <div class="header-content">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> <span>Назад</span>
+            </a>
+            <h1><i class="fas fa-balance-scale"></i> Правовая база</h1>
+            <div style="width: 50px;"></div>
+        </div>
     </header>
 
     <main class="container">
         
         <div class="law-important">
-            <i class="fas fa-shield-alt" style="font-size: 1.5rem;"></i>
-            <span>Нормативная база — это свод правил для защиты детей и самого вожатого от неправомерных обвинений.</span>
+            <i class="fas fa-user-shield"></i>
+            <span>Нормативная база — это твоя защита. Знание законов помогает вожатому действовать уверенно в любой ситуации.</span>
         </div>
 
         <section>
-            <h2>Уровни документов</h2>
+            <h2><i class="fas fa-layer-group"></i> Иерархия документов</h2>
             <div class="law-item">
-                <p><strong>Международный:</strong> Конвенция ООН о правах ребенка</p>
-                <p><strong>Федеральный:</strong> Конституция РФ, ФЗ, Указы Президента.</p>
-                <p><strong>Ведомственный:</strong> СанПиН, Приказы МинПросвещения.</p>
-                <p><strong>Локальный:</strong> Устав, Должностная инструкция, ПВР.</p>
+                <p><strong>1. Международный:</strong> Конвенция ООН о правах ребенка.</p>
+                <p><strong>2. Федеральный:</strong> Конституция РФ, Гражданский и Уголовный кодексы.</p>
+                <p><strong>3. Ведомственный:</strong> СанПиН (гигиена и питание), приказы МинПросвещения.</p>
+                <p><strong>4. Локальный:</strong> Устав лагеря, твоя должностная инструкция и правила внутреннего распорядка (ПВР).</p>
             </div>
         </section>
 
         <section>
-            <h2>Ключевые Законы</h2>
+            <h2><i class="fas fa-file-contract"></i> Основные законы</h2>
+            
             <div class="law-item">
-                <span class="badge">124-ФЗ</span>
-                <h2>Об основных гарантиях прав ребенка</h2>
-                <p>Запрещает дискриминацию, гарантирует защиту от вредной информации. Ст. 14.1 — организация отдыха.</p>
+                <span class="badge">ФЗ-124</span>
+                <h3>Об основных гарантиях прав ребенка</h3>
+                <p>Устанавливает основные права детей в РФ. Для вожатого важна <strong>Ст. 14</strong> — защита ребенка от информации, пропаганды и агитации, наносящих вред его здоровью и развитию.</p>
             </div>
 
             <div class="law-item">
-                <span class="badge">273-ФЗ</span>
-                <h2>Об Образовании в РФ</h2>
-                <p>Ст. 34 — права на уважение достоинства и защиту от насилия. Ст. 43 — обязанности детей соблюдать дисциплину.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>СанПиН (Кратко)</h2>
-            <div class="law-item" style="border-left-color: #e67e22;">
+                <span class="badge">ФЗ-273</span>
+                <h3>Об образовании в РФ</h3>
                 <ul>
-                    <li><strong>Питание:</strong> Сопровождение в столовую, мытье рук.</li>
-                    <li><strong>Территория:</strong> Запрет нахождения в тех. зонах и подсобках.</li>
-                    <li><strong>Гигиена:</strong> Контроль смены одежды и душа.</li>
-                    <li><strong>Питье:</strong> Доступ к воде 24/7.</li>
+                    <li><strong>Ст. 34:</strong> Право ребенка на уважение человеческого достоинства и защиту от всех форм насилия.</li>
+                    <li><strong>Ст. 43:</strong> Обязанность ребенка соблюдать дисциплину и режим лагеря.</li>
                 </ul>
             </div>
         </section>
 
         <section>
-            <h2>Ответственность</h2>
-            <div class="law-item" style="border-left-color: #e74c3c;">
-                <p><strong>Дисциплинарная:</strong> Выговор, увольнение (за опоздания, сон).</p>
-                <p><strong>Материальная:</strong> Только за имущество лагеря. <em>За детей материально не отвечаете!</em></p>
-                <p><strong>Уголовная:</strong> Ст. 125 (Оставление в опасности), Ст. 156 (Жестокое обращение).</p>
+            <h2><i class="fas fa-pills"></i> СанПиН (Краткая выжимка)</h2>
+            <div class="law-item info">
+                <span class="badge">Гигиена</span>
+                <ul>
+                    <li><strong>Питание:</strong> Сопровождение в столовую обязательно. Контроль мытья рук.</li>
+                    <li><strong>Питье:</strong> Ребенок должен иметь доступ к чистой воде 24/7.</li>
+                    <li><strong>Быт:</strong> Контроль смены постельного белья (раз в 7 дней) и ежедневный душ.</li>
+                </ul>
             </div>
         </section>
 
-        <div class="law-important">
-            <i class="fas fa-check-circle"></i>
-            <span>В 1 день подпишите: ПВР, Должностную, Инструкцию по ТБ и график.</span>
+        <section>
+            <h2><i class="fas fa-exclamation-triangle"></i> Твоя ответственность</h2>
+            <div class="law-item warning">
+                <span class="badge">Важно знать</span>
+                <p><strong>Дисциплинарная:</strong> Выговор или увольнение (за нарушение ПВР, курение, сон на посту).</p>
+                <p><strong>Материальная:</strong> Ты отвечаешь только за вверенное имущество (инвентарь). <em>За личные вещи детей вожатый ответственности не несет.</em></p>
+                <p><strong>Уголовная:</strong> 
+                    <ul>
+                        <li><strong>Ст. 125:</strong> Оставление в опасности.</li>
+                        <li><strong>Ст. 156:</strong> Неисполнение обязанностей по воспитанию (жестокое обращение).</li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+
+        <div class="law-important" style="border-left-color: #27ae60;">
+            <i class="fas fa-file-signature" style="color: #27ae60;"></i>
+            <span>В первый день обязательно подпиши: Должностную инструкцию, ТБ и график работы. Сохрани копии, если это возможно.</span>
         </div>
 
     </main>
 
+    <footer>
+        тимон • база знаний 2026
+    </footer>
 
 </body>
 </html>
