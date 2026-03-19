@@ -3,83 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Охрана жизни и здоровья - Вожатский чемоданчик</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Безопасность - Вожатский чемоданчик</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-      header { background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; text-align: center; padding: 2rem; position: relative; }
-.safety-section { border-left: 5px solid #e74c3c; background: #fff5f5; padding: 20px; margin-bottom: 20px; border-radius: 0 15px 15px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-.safety-section h2 { color: #c0392b; margin-top: 0; display: flex; align-items: center; gap: 10px; }
-.badge { background: #e74c3c; color: white; padding: 4px 10px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
-.important-note { background: #fff3cd; border: 1px dashed #f1c40f; padding: 15px; border-radius: 10px; margin-top: 20px; }
+        /* --- БАЗОВЫЕ СТИЛИ --- */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #fdfdfd;
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        /* --- ШАПКА --- */
+        header {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            padding: 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 0 0 30px 30px;
+            text-align: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.4);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background: white;
+            color: #c0392b;
+            transform: translateX(-5px);
+        }
+
+        /* --- КОНТЕНТ --- */
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #7f8c8d;
+            text-align: center;
+        }
+
+        .safety-section { 
+            border-left: 8px solid #e74c3c; 
+            background: #fff5f5; 
+            padding: 25px; 
+            margin-bottom: 25px; 
+            border-radius: 0 20px 20px 0; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03); 
+            transition: 0.3s;
+        }
+
+        .safety-section:hover {
+            transform: scale(1.01);
+        }
+
+        .safety-section h2 { 
+            color: #c0392b; 
+            margin-top: 0; 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            font-size: 1.4rem;
+        }
+
+        .safety-section ul {
+            padding-left: 20px;
+            margin: 15px 0 0 0;
+        }
+
+        .safety-section li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        /* ЦВЕТОВЫЕ ТЕМЫ СЕКЦИЙ */
+        .blue-section { border-left-color: #3498db; background: #f0f7ff; }
+        .blue-section h2 { color: #2980b9; }
+
+        .orange-section { border-left-color: #f39c12; background: #fffaf0; }
+        .orange-section h2 { color: #d35400; }
+
+        .green-section { border-left-color: #1abc9c; background: #f0fffb; }
+        .green-section h2 { color: #16a085; }
+
+        .purple-section { border-left-color: #9b59b6; background: #faf5ff; }
+        .purple-section h2 { color: #8e44ad; }
+
+        /* БЛОК ЗАПРЕТА */
+        .ban-section { 
+            background: #2c3e50; 
+            color: white; 
+            border-left: 8px solid #000;
+            padding: 25px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        .ban-section h2 { color: #ecf0f1; }
+        .badge { 
+            background: #e74c3c; 
+            color: white; 
+            padding: 5px 12px; 
+            border-radius: 50px; 
+            font-size: 0.75rem; 
+            font-weight: 800; 
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* ЗАМЕТКА */
+        .important-note { 
+            background: #fff3cd; 
+            border: 2px dashed #f1c40f; 
+            padding: 25px; 
+            border-radius: 20px; 
+            margin-top: 40px; 
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .important-note i { font-size: 2rem; color: #f39c12; }
+        .important-note p { 
+            margin: 0; 
+            font-family: 'Caveat', cursive; 
+            font-size: 1.5rem; 
+            color: #856404; 
+        }
+
+        @media (max-width: 600px) {
+            .header-content span { display: none; }
+            .safety-section h2 { font-size: 1.2rem; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</a>
-        <h1><i class="fas fa-shield-alt"></i> Охрана жизни и здоровья</h1>
+        <div class="header-content">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-chevron-left"></i> <span>Назад</span>
+            </a>
+            <h1><i class="fas fa-shield-alt"></i> Безопасность</h1>
+            <div style="width: 80px;"></div>
+        </div>
     </header>
 
-    <main class="container content-page">
-        <p>Охрана жизни и здоровья детей является приоритетной задачей. Правила безопасности охватывают как общую организацию работы лагеря, так и конкретные требования к поведению воспитанников.</p>
+    <main class="container">
+        <p class="intro-text">Жизнь и здоровье детей — твоя главная ответственность. Эти правила написаны опытом сотен смен. Знай их как свои пять пальцев.</p>
 
         <section class="safety-section">
-            <h2><i class="fas fa-shield-virus"></i> 1. Безопасность и инфраструктура</h2>
+            <h2><i class="fas fa-campground"></i> 1. Лагерь и территория</h2>
             <ul>
-                <li><strong>Территория:</strong> Круглосуточная охрана, пропускной режим, ограждение. Проводится противоклещевая обработка.</li>
-                <li><strong>Питание:</strong> Только бутилированная/проверенная вода. Свежие продукты, приготовление непосредственно перед приемом.</li>
-                <li><strong>Объекты:</strong> Запрет на тарзанки/сплавы. Зона костра удалена от корпусов.</li>
+                <li><strong>Контроль:</strong> Территория закрыта. Посторонним вход запрещен.</li>
+                <li><strong>Вода:</strong> Только из питьевых фонтанчиков или бутилированная.</li>
+                <li><strong>Клещи:</strong> Передвижение только по дорожкам. После леса — обязательный осмотр.</li>
             </ul>
         </section>
 
-        <section class="safety-section" style="border-left-color: #3498db; background: #f0f7ff;">
-            <h2 style="color: #2980b9;"><i class="fas fa-child"></i> 2. Правила поведения для детей</h2>
+        <section class="safety-section blue-section">
+            <h2><i class="fas fa-user-shield"></i> 2. Поведение детей</h2>
             <ul>
-                <li><strong>Дисциплина:</strong> Соблюдение режима, нахождение в составе отряда. Вожатый всегда должен знать, где ребенок.</li>
-                <li><strong>Выход:</strong> Самостоятельный выход за территорию категорически запрещен.</li>
-                <li><strong>Гигиена:</strong> Обязательное мытье рук, душ. Запрет на употребление незнакомых ягод и плодов.</li>
+                <li><strong>«Я тебя вижу»:</strong> Вожатый всегда знает, где находятся все 100% детей.</li>
+                <li><strong>Запрет:</strong> Выход за территорию без сопровождения — мгновенное отчисление.</li>
+                <li><strong>Природа:</strong> Никаких незнакомых ягод, грибов или «домашних» животных.</li>
             </ul>
         </section>
 
-        <section class="safety-section" style="border-left-color: #f39c12; background: #fffaf0;">
-            <h2 style="color: #d35400;"><i class="fas fa-fire-extinguisher"></i> 3. Противопожарная безопасность</h2>
+        <section class="safety-section orange-section">
+            <h2><i class="fas fa-fire-extinguisher"></i> 3. Пожарная безопасность</h2>
             <ul>
-                <li>Запрещен огонь в помещениях и использование электроприборов без разрешения.</li>
-                <li>Легковоспламеняющиеся предметы сдаются вожатым на хранение.</li>
-                <li>Дети должны четко знать план эвакуации при первых признаках возгорания.</li>
+                <li><strong>Электрика:</strong> Никаких чайников, кипятильников и лишних тройников в палатах.</li>
+                <li><strong>План:</strong> Ты должен знать пути эвакуации и место сбора отряда за 30 секунд.</li>
+                <li><strong>Зажигалки:</strong> Спички и горючее изымаются в первый же день.</li>
             </ul>
         </section>
 
-        <section class="safety-section" style="border-left-color: #1abc9c; background: #f0fffb;">
-            <h2 style="color: #16a085;"><i class="fas fa-swimmer"></i> 4. Правила на мероприятиях</h2>
+        <section class="safety-section green-section">
+            <h2><i class="fas fa-swimmer"></i> 4. Активности и вода</h2>
             <ul>
-                <li><strong>Бассейн:</strong> Вход только по команде плаврука. Никаких ласт, масок и ложных сигналов бедствия.</li>
-                <li><strong>Солнце:</strong> Наличие головного убора ОБЯЗАТЕЛЬНО.</li>
-                <li><strong>Транспорт:</strong> Запрещено ходить по салону или высовываться из окон в автобусе.</li>
-                <li><strong>Походы:</strong> Закрытая обувь, движение строго по маршруту.</li>
+                <li><strong>Купание:</strong> Вход в воду строго по свистку. Плаврук — главный человек на пляже.</li>
+                <li><strong>Солнце:</strong> Нет кепки — нет улицы. С 12:00 до 16:00 стараемся быть в тени.</li>
+                <li><strong>Автобус:</strong> Вставать во время движения запрещено правилами ГИБДД.</li>
             </ul>
         </section>
 
-        <section class="safety-section" style="border-left-color: #9b59b6; background: #faf5ff;">
-            <h2 style="color: #8e44ad;"><i class="fas fa-tshirt"></i> 5. Одежда и обувь</h2>
+        <section class="safety-section purple-section">
+            <h2><i class="fas fa-socks"></i> 5. Одежда и обувь</h2>
             <ul>
-                <li>Одежда подбирается по фактической погоде, а не по календарю.</li>
-                <li><strong>Спорт:</strong> Только фиксированная обувь (кроссовки/кеды). Шлепанцы и каблуки запрещены.</li>
+                <li><strong>Спорт:</strong> На эстафеты — только кроссовки. Шлепанцы ведут к травмам.</li>
+                <li><strong>Вечер:</strong> Комары и прохлада требуют длинный рукав и закрытые ноги.</li>
             </ul>
         </section>
 
-        <section class="safety-section" style="border-left-color: #000; background: #f2f2f2;">
-            <div class="badge">Важно!</div>
-            <h2 style="color: #333;"><i class="fas fa-ban"></i> 6. Категорические запреты</h2>
-            <p>Строго запрещено курение и употребление спиртных напитков. Нарушение (в т.ч. воровство) влечет за собой <strong>досрочное отчисление</strong> из лагеря.</p>
+        <section class="ban-section">
+            <div class="badge">Критический уровень</div>
+            <h2><i class="fas fa-ban"></i> Категорически запрещено</h2>
+            <p style="line-height: 1.6;">Курение, алкоголь, психотропные вещества, воровство и драки. За любое из этих нарушений ребенок отправляется домой за счет родителей в течение 24 часов.</p>
         </section>
 
         <div class="important-note">
-            <i class="fas fa-info-circle"></i> Вожатые несут персональную ответственность за безопасность детей, проверяют бытовые условия и контролируют выполнение всех инструкций.
+            <i class="fas fa-user-check"></i>
+            <p><strong>Помни:</strong> Твоя уверенность и спокойствие — залог тишины в отряде. Если ты соблюдаешь правила, их будут соблюдать и дети.</p>
         </div>
     </main>
 
+    <footer style="text-align: center; padding: 40px; font-family: 'Caveat'; color: #bdc3c7; font-size: 1.5rem;">
+        тимон • 2026
+    </footer>
 
 </body>
 </html>
