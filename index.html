@@ -21,7 +21,6 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-        overflow-x: hidden; /* На всякий случай от горизонтального скролла */
     }
 
     /* --- ШАПКА (КРАСНАЯ) --- */
@@ -37,63 +36,101 @@
     }
 
     header h1 { 
-        font-size: 2.2rem; 
+        font-size: 1.8rem; 
         color: #ffffff; 
         text-transform: uppercase; 
         margin: 0; 
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 15px;
+        gap: 12px;
     }
-
-    header h1 i { color: #ffffff; }
 
     header p { 
         font-family: 'Caveat', cursive; 
-        font-size: 1.8rem; 
+        font-size: 1.5rem; 
         color: rgba(255, 255, 255, 0.9); 
-        margin: 10px 0 0; 
+        margin: 8px 0 0; 
     }
     
-    /* --- КОНТЕЙНЕР --- */
+    /* --- КОНТЕЙНЕР СПИСКА --- */
     .container { 
-        max-width: 1000px; 
-        margin: 40px auto; 
-        padding: 0 20px; 
-        position: relative;
-        z-index: 1; /* Гарантируем, что контейнер выше фона */
+        max-width: 600px; /* Сужаем для удобства чтения */
+        margin: 25px auto; 
+        padding: 0 15px; 
     }
 
-    /* --- ГИБКАЯ СЕТКА (Grid) --- */
-    .grid-menu { 
-        display: grid; 
-        grid-template-columns: repeat(4, 1fr); 
-        gap: 20px; 
+    /* --- ВЕРТИКАЛЬНЫЙ СПИСОК --- */
+    .list-menu { 
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Отступ между плашками */
     }
     
-    /* --- КАРТОЧКИ (БАЗОВЫЙ СТИЛЬ) --- */
+    /* --- ШИРОКИЕ КАРТОЧКИ --- */
     .card { 
         background: white; 
-        padding: 30px 15px; 
-        border-radius: 25px; 
+        padding: 20px 25px; 
+        border-radius: 20px; 
         text-decoration: none; 
-        text-align: center; 
         display: flex; 
-        flex-direction: column; 
-        align-items: center; 
-        justify-content: center; 
-        /* "Толстая" жесткая тень снизу для эффекта объема */
-        box-shadow: 0 8px 0 #ddd; 
-        
-        /* ПЛАВНОСТЬ ДЛЯ ВСЕХ ИЗМЕНЕНИЙ (наведение и клик) */
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
-        
+        align-items: center; /* Выравнивание по горизонтали */
+        box-shadow: 0 6px 0 #ddd; 
+        transition: all 0.2s ease; 
         border: 1px solid rgba(0,0,0,0.05); 
-        min-height: 140px;
         position: relative;
-        top: 0; /* Базовая позиция */
+        top: 0;
     }
+
+    .card:active { 
+        top: 4px;
+        box-shadow: 0 2px 0 #ddd; 
+    }
+
+    /* Иконка слева */
+    .card i { 
+        font-size: 1.8rem; 
+        margin-right: 20px; 
+        width: 40px; /* Фиксированная ширина для ровного списка */
+        text-align: center;
+    }
+
+    /* Текст карточки */
+    .card h3 { 
+        margin: 0; 
+        font-size: 1.1rem; 
+        font-weight: 800; 
+        text-transform: uppercase; 
+        letter-spacing: 0.5px;
+    }
+
+    /* Стрелочка вправо (опционально, для вида приложения) */
+    .card::after {
+        content: '\f105'; /* Код стрелки FontAwesome */
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        margin-left: auto;
+        opacity: 0.3;
+    }
+
+    /* Цвета для левой полоски или текста */
+    .card-red { border-left: 8px solid #e74c3c; color: #e74c3c; }
+    .card-blue { border-left: 8px solid #3498db; color: #3498db; }
+    .card-green { border-left: 8px solid #2ecc71; color: #2ecc71; }
+    .card-orange { border-left: 8px solid #f39c12; color: #f39c12; }
+    .card-purple { border-left: 8px solid #9b59b6; color: #9b59b6; }
+    .card-teal { border-left: 8px solid #1abc9c; color: #1abc9c; }
+    .card-dark { border-left: 8px solid #34495e; color: #34495e; }
+
+    footer { 
+        margin-top: auto; 
+        text-align: center; 
+        padding: 30px; 
+        font-family: 'Caveat'; 
+        font-size: 1.4rem; 
+        color: #bdc3c7; 
+    }
+
 
     /* --- ЭФФЕКТ ПРИ НАВЕДЕНИИ (Hover) --- */
     .card:hover { 
