@@ -25,9 +25,19 @@ body {
     color: var(--text-main);
 }
 
+/* Теперь заголовки используют тот же шрифт, что и весь сайт */
 h1, h2, h3, .card h3 {
-    font-family: 'Comfortaa', cursive;
-    font-weight: 700;
+    font-family: 'Montserrat', sans-serif; /* Убрали Comfortaa */
+    font-weight: 700; /* Оставляем жирным для акцента */
+    letter-spacing: 0.5px; /* Немного раздвинем буквы для солидности */
+    text-transform: none; /* Если хочешь все заглавными, напиши uppercase */
+}
+
+/* На всякий случай обновим и шапку, чтобы там тоже был Montserrat */
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; /* Сделаем чуть жирнее основного текста */
+    text-transform: uppercase; /* В заголовке будет смотреться мощно */
 }
 
 /* --- Шапка сайта (Header) --- */
@@ -41,11 +51,6 @@ header {
     margin-bottom: 2rem;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-    letter-spacing: 1px;
-}
 
 header p {
     margin: 0.5rem 0 0;
