@@ -4,119 +4,300 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Игротека - Вожатский чемоданчик</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-     header { background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; text-align: center; padding: 2rem; position: relative; }
-.category-header { display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 10px; margin: 20px 0 10px; font-weight: bold; }
-.cat-bus { background: #f1c40f; color: #000; }
-.cat-rain { background: #3498db; color: #fff; }
-.cat-sport { background: #2ecc71; color: #fff; }
-.game-item { background: white; border-radius: 12px; padding: 15px; margin-bottom: 10px; border: 1px solid #eee; }
-.game-tag { float: right; font-size: 0.6rem; background: #eee; padding: 2px 5px; border-radius: 3px; }
-</style>
+        /* --- БАЗОВЫЕ СТИЛИ --- */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #fdf6e3;
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        /* --- ШАПКА --- */
+        header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 0 0 30px 30px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #9b59b6;
+            border: 2px solid #9b59b6;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background: #9b59b6;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        header h1 {
+            font-size: 1.4rem;
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        /* --- КОНТЕНТ --- */
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* КАТЕГОРИИ */
+        .game-category {
+            margin-bottom: 40px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .category-header h2 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        /* Цвета категорий */
+        .cat-bus { background: #f1c40f; color: #2c3e50; }
+        .cat-rain { background: #3498db; }
+        .cat-sport { background: #2ecc71; }
+        .cat-analyze { background: #e67e22; }
+
+        /* ГРИД ИГР */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .game-item {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            border-bottom: 5px solid #eee;
+            transition: 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .game-item h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            padding-right: 70px;
+        }
+
+        .game-item p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #7f8c8d;
+            margin: 0;
+        }
+
+        .game-tag {
+            position: absolute;
+            top: 25px;
+            right: 20px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            background: #f0f3f5;
+            padding: 4px 8px;
+            border-radius: 6px;
+            color: #95a5a6;
+            text-transform: uppercase;
+        }
+
+        /* ВАЖНАЯ ЗАМЕТКА */
+        .important-note {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            border-radius: 25px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .important-note i {
+            font-size: 2rem;
+            color: #f1c40f;
+        }
+
+        .important-note p {
+            margin: 0;
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+        }
+
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 600px) {
+            .header-content span { display: none; }
+            .game-grid { grid-template-columns: 1fr; }
+            .game-item { padding: 20px; }
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</a>
-        <h1><i class="fas fa-gamepad"></i> Игротека вожатого</h1>
-        <p>Игры на все случаи лагерной жизни</p>
+        <div class="header-content">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-chevron-left"></i> <span>Назад</span>
+            </a>
+            <h1><i class="fas fa-gamepad"></i> Игротека</h1>
+            <div style="width: 80px;"></div>
+        </div>
     </header>
 
-    <main class="container content-page">
+    <main class="container">
 
         <section class="game-category">
             <div class="category-header cat-bus">
-                <i class="fas fa-bus"></i>
-                <h2>1. Игры в пути (автобус, поезд)</h2>
+                <i class="fas fa-bus fa-lg"></i>
+                <h2>Игры в пути (автобус, поезд)</h2>
             </div>
             <div class="game-grid">
                 <div class="game-item">
-                    <h4>Трехлитровая банка <span class="game-tag">Словесная</span></h4>
-                    <p>Называем слова на одну букву, которые влезут в банку. Развивает внимательность и словарный запас.</p>
+                    <span class="game-tag">Словесная</span>
+                    <h4>Трёхлитровая банка</h4>
+                    <p>Называем слова на одну букву, которые физически влезут в банку. Выигрывает тот, кто назовет слово последним.</p>
                 </div>
                 <div class="game-item">
-                    <h4>С одной буквой <span class="game-tag">Реакция</span></h4>
-                    <p>Вожатый быстро задает вопросы, а дети отвечают только словами на выбранную букву (например, «П»).</p>
+                    <span class="game-tag">Реакция</span>
+                    <h4>С одной буквой</h4>
+                    <p>Вожатый задает вопросы, а дети отвечают только словами на одну букву. Например, на букву «П»: — Как тебя зовут? — Паша. — Что ел на завтрак? — Плов.</p>
                 </div>
                 <div class="game-item">
-                    <h4>Встреча лагеря <span class="game-tag">Эмоции</span></h4>
-                    <p>Готовим «шумовой оркестр»: свист, хлопки, кричалки для эффектного въезда в лагерь.</p>
+                    <span class="game-tag">Эмоции</span>
+                    <h4>Встреча лагеря</h4>
+                    <p>Репетируем «шумовой оркестр» (хлопки, топот, кричалки) для самого эффектного въезда в лагерь.</p>
                 </div>
             </div>
         </section>
 
         <section class="game-category">
             <div class="category-header cat-rain">
-                <i class="fas fa-cloud-showers-heavy"></i>
-                <h2>2. В помещении (на случай дождя)</h2>
+                <i class="fas fa-cloud-showers-heavy fa-lg"></i>
+                <h2>В помещении (на случай дождя)</h2>
             </div>
             <div class="game-grid">
                 <div class="game-item">
-                    <h4>Боб-Доб <span class="game-tag">Находчивость</span></h4>
-                    <p>Водящий угадывает, у кого спрятана монета, когда все одновременно кладут руки на стол.</p>
+                    <span class="game-tag">Внимательность</span>
+                    <h4>Боб-Доб</h4>
+                    <p>Водящий должен угадать, у кого в руках спрятана монета. Все участники одновременно ударяют кулаками по столу, имитируя звук.</p>
                 </div>
                 <div class="game-item">
-                    <h4>Сторож <span class="game-tag">Активная</span></h4>
-                    <p>Нужно перебежать на свободный стул, пока «сторожа» не успели вас удержать.</p>
+                    <span class="game-tag">Активная</span>
+                    <h4>Сторож</h4>
+                    <p>Сидя на стульях, дети пытаются перебежать на свободное место, пока «сторожа» (стоящие сзади) пытаются их удержать за плечи.</p>
                 </div>
                 <div class="game-item">
-                    <h4>Зоопарк <span class="game-tag">Память</span></h4>
-                    <p>Передача хода через жесты животных. Ошибка — вылет или штрафное очко.</p>
+                    <span class="game-tag">Память</span>
+                    <h4>Зоопарк</h4>
+                    <p>Каждый выбирает животное и его жест. Нужно передавать «ход», показывая свой жест, а затем жест другого участника.</p>
                 </div>
             </div>
         </section>
 
         <section class="game-category">
             <div class="category-header cat-sport">
-                <i class="fas fa-running"></i>
-                <h2>3. Спортивные и активные (КТД)</h2>
+                <i class="fas fa-running fa-lg"></i>
+                <h2>Спортивные и активные</h2>
             </div>
             <div class="game-grid">
                 <div class="game-item">
-                    <h4>Удав <span class="game-tag">Командная</span></h4>
-                    <p>Команда цепочкой (руки на плечи) огибает препятствия, не разрывая «тело» змеи.</p>
+                    <span class="game-tag">Командная</span>
+                    <h4>Удав</h4>
+                    <p>Отряд строится паровозиком. Задача — пройти полосу препятствий, не разрывая рук. Можно усложнить, завязав глаза всем, кроме первого.</p>
                 </div>
                 <div class="game-item">
-                    <h4>Сиамские близнецы <span class="game-tag">Сплочение</span></h4>
-                    <p>Бег парами, сцепившись руками за спиной. Требует полной синхронности движений.</p>
+                    <span class="game-tag">Сплочение</span>
+                    <h4>Сиамские близнецы</h4>
+                    <p>Пары связываются ногами или руками. В таком виде нужно добежать до финиша или выполнить творческое задание.</p>
                 </div>
                 <div class="game-item">
-                    <h4>Черепаха <span class="game-tag">Эстафета</span></h4>
-                    <p>Ползание на четвереньках с тазом на спине. Задача — не уронить «панцирь».</p>
+                    <span class="game-tag">Эстафета</span>
+                    <h4>Черепаха</h4>
+                    <p>Эстафета на четвереньках с металлическим тазом на спине. Если «панцирь» упал — нужно вернуться на старт.</p>
                 </div>
             </div>
         </section>
 
         <section class="game-category">
             <div class="category-header cat-analyze">
-                <i class="fas fa-lightbulb"></i>
-                <h2>4. Планирование и анализ</h2>
+                <i class="fas fa-lightbulb fa-lg"></i>
+                <h2>Планирование и анализ</h2>
             </div>
             <div class="game-grid">
                 <div class="game-item">
-                    <h4>Пять пальцев <span class="game-tag">Рефлексия</span></h4>
-                    <p>Мизинец (мысли), Безымянный (близость цели), Средний (состояние), Указательный (услуга), Большой (бодрость).</p>
+                    <span class="game-tag">Рефлексия</span>
+                    <h4>Пять пальцев</h4>
+                    <p>Каждый палец — вопрос: М (мизинец) — мои мысли, Б — близость к цели, С — состояние души, У — услуга другим, Б — бодрость.</p>
                 </div>
                 <div class="game-item">
-                    <h4>Тендер идей <span class="game-tag">Лидерство</span></h4>
-                    <p>Защита проектов мероприятий перед всем отрядом. Выбор лучших дел на смену.</p>
+                    <span class="game-tag">Лидерство</span>
+                    <h4>Тендер идей</h4>
+                    <p>Группы детей готовят и защищают свои проекты мероприятий. Побеждает тот проект, за который проголосует большинство.</p>
                 </div>
                 <div class="game-item">
-                    <h4>Ниточка <span class="game-tag">Огонек</span></h4>
-                    <p>Говоришь, пока наматываешь нитку на палец. Помогает структурировать мысли и не затягивать речь.</p>
+                    <span class="game-tag">Огонек</span>
+                    <h4>Ниточка</h4>
+                    <p>Традиция вечерней свечки: участник говорит, пока медленно наматывает нитку на палец. Это учит говорить кратко и по делу.</p>
                 </div>
             </div>
         </section>
 
         <div class="important-note">
-            <i class="fas fa-info-circle"></i> <strong>Совет:</strong> Всегда имей в запасе 2-3 «пятиминутки» (игры без реквизита), чтобы занять отряд в очереди в столовую или перед линейкой.
+            <i class="fas fa-info-circle"></i>
+            <p><strong>Совет:</strong> Всегда имей в запасе 2-3 игры «без ничего», чтобы занять детей в очереди в столовую или во время ожидания автобуса.</p>
         </div>
 
     </main>
 
-
+    <footer style="text-align: center; padding: 40px; font-family: 'Caveat'; color: #bdc3c7; font-size: 1.5rem;">
+        тимон • 2026
+    </footer>
 
 </body>
 </html>
