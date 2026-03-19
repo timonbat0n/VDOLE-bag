@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -9,6 +10,46 @@
     <link rel="stylesheet" href="style.css">
     <style>
         /* --- ГЛОБАЛЬНЫЕ НАСТРОЙКИ PIN BOARD --- */
+/* Фоновый стиль "Листок в линейку" */
+.paper-note {
+    background-color: #fff;
+    /* Рисуем линии: 
+       первая (красная) — это поле, 
+       остальные (серые) — это линейки */
+    background-image: 
+        linear-gradient(90deg, transparent 39px, #f2a1a1 39px, #f2a1a1 41px, transparent 41px),
+        linear-gradient(#e1e1e1 0.1em, transparent 0.1em);
+    background-size: 100% 100%, 100% 1.5em; /* Расстояние между линейками */
+    padding: 45px 20px 25px 50px !important; /* Отступ слева больше, чтобы текст не залез на красную линию */
+    border-radius: 5px; /* У блокнотных листов углы обычно острее */
+    box-shadow: 2px 5px 15px rgba(0,0,0,0.1);
+    font-family: 'Caveat', cursive; /* Рукописный шрифт */
+    font-size: 1.4rem;
+}
+
+/* Стилизуем сами пункты, чтобы они ровно ложились на строчки */
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 1.5em; /* Высота должна совпадать с background-size линеек */
+    margin-bottom: 0 !important; 
+    color: #2c3e50;
+}
+
+/* Делаем чекбоксы симпатичнее */
+.todo-item input[type="checkbox"] {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    accent-color: #e74c3c;
+}
+
+/* Эффект зачеркивания при нажатии */
+.todo-item input:checked + span {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
 
 /* Фон - Пробковая доска */
 .pin-board-body {
@@ -481,13 +522,28 @@
             </ul>
         </div>
         
-        <div class="pin-card">
-    <h2>Чек-лист перед выходом 📋</h2>
-    <div class="todo-item"><input type="checkbox"> Дети</div>
-    <div class="todo-item"><input type="checkbox"> Телефон</div>
-    <div class="todo-item"><input type="checkbox"> Настроение</div>
-    <div class="todo-item"><input type="checkbox"> Нервы</div>
+      <div class="pin-card paper-note">
+    <h2>Памятка на выход:</h2>
+    <label class="todo-item">
+        <input type="checkbox"> <span>Списки отряда</span>
+    </label>
+    <label class="todo-item">
+        <input type="checkbox"> <span>Заряженный телефон</span>
+    </label>
+    <label class="todo-item">
+        <input type="checkbox"> <span>Питьевая вода</span>
+    </label>
+    <label class="todo-item">
+        <input type="checkbox"> <span>Головные уборы</span>
+    </label>
+    <label class="todo-item">
+        <input type="checkbox"> <span>Хорошее настроение</span>
+    </label>
+     <label class="todo-item">
+        <input type="checkbox"> <span>Любовь к детям</span>
+    </label>
 </div>
+
 
 <div class="pin-card">
     <h2>Быстрая заметка ✍️</h2>
