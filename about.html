@@ -383,6 +383,49 @@
 }
 
 .fortune-back i { color: #f1c40f; opacity: 0.5; margin-top: 10px; }
+    /* Стиль для выполненных задач в чек-листе */
+    .todo-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        font-size: 1.1rem;
+    }
+    .todo-item input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        accent-color: #e74c3c;
+    }
+    
+    /* Текстовое поле для быстрых заметок */
+    #quick-note {
+        width: 100%;
+        height: 100px;
+        border: 2px dashed #e74c3c;
+        border-radius: 15px;
+        padding: 10px;
+        font-family: 'Caveat', cursive;
+        font-size: 1.4rem;
+        background: #fffcf5;
+        resize: none;
+        outline: none;
+    }
+
+    /* Кнопка генератора */
+    .magic-btn {
+        background: #e74c3c;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        cursor: pointer;
+        margin-top: 10px;
+        box-shadow: 0 4px 0 #c0392b;
+    }
+    .magic-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #c0392b; }
     </style>
 </head>
 <body class="pin-board-body">
@@ -437,7 +480,27 @@
                 <li><i class="fas fa-language"></i> Языки: Английский (B1)</li>
             </ul>
         </div>
+        
+        <div class="pin-card">
+    <h2>Чек-лист перед выходом 📋</h2>
+    <div class="todo-item"><input type="checkbox"> Дети</div>
+    <div class="todo-item"><input type="checkbox"> Телефон</div>
+    <div class="todo-item"><input type="checkbox"> Настроение</div>
+    <div class="todo-item"><input type="checkbox"> Нервы</div>
+</div>
 
+<div class="pin-card">
+    <h2>Быстрая заметка ✍️</h2>
+    <textarea id="quick-note" placeholder="Запиши что-то важное..."></textarea>
+</div>
+
+<div class="pin-card">
+    <h2>Идея-пятиминутка 💡</h2>
+    <p id="idea-text">Нажми на кнопку, если дети начали беситься!</p>
+    <button class="magic-btn" onclick="generateIdea()">ДАЙ ИДЕЮ!</button>
+</div>
+
+        
         <div class="stickers-group">
             <a href="https://t.me/timoonbat" class="sticker tg-sticker" target="_blank">
                 <i class="fab fa-telegram-plane"></i> @timoonbat
@@ -456,6 +519,24 @@
     </footer>
 
     <script>
+    const noteArea = document.getElementById('quick-note');
+    noteArea.value = localStorage.getItem('vozhayNote') || '';
+    noteArea.addEventListener('input', () => {
+        localStorage.setItem('vozhayNote', noteArea.value);
+    });
+
+    // Генератор идей
+    function generateIdea() {
+        const ideas = [
+            "Игра 'Слон': один показывает жест, остальные повторяют задом наперед.",
+            "Игра 'Нос-пол-потолок': путай детей, показывая неправильно.",
+            "Игра 'Ритм': хлопай ритм, отряд должен его синхронно повторить.",
+            "Конкурс на самую тихую походку до столовой.",
+            "Загадай предмет в поле зрения, дети угадывают по 'Да/Нет'."
+        ];
+        const randomIdea = ideas[Math.floor(Math.random() * ideas.length)];
+        document.getElementById('idea-text').innerText = randomIdea;
+    }
         const fortunes = [
     "Сегодня тихий час будет реально тихим!",
     "Кто-то из детей подарит тебе фенечку.",
