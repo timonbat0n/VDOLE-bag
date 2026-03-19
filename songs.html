@@ -4,79 +4,236 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Песни - Вожатский чемоданчик</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Caveat:wght@600&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        .song-category { margin-bottom: 40px; }
+        /* --- БАЗОВЫЕ СТИЛИ --- */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #fdf6e3;
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        /* --- ШАПКА --- */
+        header {
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
+            padding: 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 0 0 30px 30px;
+            text-align: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.5);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background: white;
+            color: #f39c12;
+            transform: translateX(-5px);
+        }
+
+        /* --- КОНТЕНТ --- */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .song-category { margin-bottom: 50px; }
+        
         .song-category h2 { 
-            color: #f1c40f; 
-            border-bottom: 2px solid #f1c40f; 
+            color: #795548; 
+            border-bottom: 3px solid #f1c40f; 
             padding-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            font-size: 1.6rem;
         }
 
-        /* Список названий */
+        /* Списки названий */
         .songs-list-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 10px;
-            margin: 20px 0;
-        }
-        .song-name-tag {
-            background: #fff9e6;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            border: 1px solid #fcebb6;
-            color: #795548;
+            gap: 12px;
+            margin: 25px 0;
         }
 
-        /* Тексты песен */
+        .song-name-tag {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #795548;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            border-left: 4px solid #f1c40f;
+            transition: 0.2s;
+        }
+
+        .song-name-tag:hover {
+            transform: translateY(-2px);
+            background: #fff9e6;
+        }
+
+        /* Карточки песен */
         .song-card {
             background: #2c3e50;
             color: #ecf0f1;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            padding: 30px;
+            border-radius: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             position: relative;
             overflow: hidden;
         }
-        .song-card::before {
+
+        .song-card::after {
             content: "\f001";
             font-family: "Font Awesome 5 Free";
             font-weight: 900;
             position: absolute;
-            right: 20px;
+            right: -10px;
             top: 20px;
-            font-size: 3rem;
-            opacity: 0.1;
+            font-size: 6rem;
+            opacity: 0.05;
             color: white;
         }
-        .song-card h3 { color: #f1c40f; margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
-        .lyrics { white-space: pre-line; line-height: 1.8; font-family: 'Courier New', Courier, monospace; font-size: 1rem; }
-        
-        .chorus { font-style: italic; border-left: 3px solid #f1c40f; padding-left: 15px; margin: 10px 0; }
-        
-        .military { background: #3e4e3b; } /* Зеленый оттенок для строевых */
+
+        .song-card h3 { 
+            color: #f1c40f; 
+            margin: 0 0 20px 0; 
+            font-size: 1.4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+        }
+
+        .lyrics { 
+            white-space: pre-line; 
+            line-height: 1.8; 
+            font-family: 'Montserrat', sans-serif; /* Оставил читабельный, но можно поменять на Fira Code */
+            font-size: 1rem; 
+        }
+
+        .chorus { 
+            font-style: italic; 
+            background: rgba(241, 196, 15, 0.1);
+            border-left: 4px solid #f1c40f; 
+            padding: 15px; 
+            margin: 15px 0; 
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* Строевые */
+        .military { background: #3e4e3b; border-bottom: 6px solid #2ecc71; }
         .military h3 { color: #9effa9; }
+
+        /* МУЗЫКАЛЬНЫЙ ПЛЕЕР */
+        .music-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin: 50px 0;
+        }
+
+        .music-header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+        }
+
+        .iframe-wrapper {
+            position: relative;
+            padding-bottom: 450px; /* Высота плеера */
+            height: 0;
+        }
+
+        .iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .music-footer {
+            background: #f8f9fa;
+            padding: 10px 25px;
+            font-size: 0.8rem;
+            color: #95a5a6;
+            text-align: right;
+        }
+
+        /* ЗАМЕТКА */
+        .important-note {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            border-radius: 25px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .important-note i { font-size: 2rem; color: #f1c40f; }
+        .important-note p { margin: 0; font-family: 'Caveat', cursive; font-size: 1.5rem; }
+
+        @media (max-width: 600px) {
+            .header-content span { display: none; }
+            .song-card { padding: 20px; }
+            .lyrics { font-size: 0.9rem; }
+        }
     </style>
 </head>
 <body>
 
-    <header style="background: linear-gradient(135deg, #f1c40f, #f39c12);">
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</a>
-        <h1><i class="fas fa-guitar"></i> Песенник вожатого</h1>
-        <p>От лирики у костра до бодрого марша</p>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-chevron-left"></i> <span>Назад</span>
+            </a>
+            <h1><i class="fas fa-guitar"></i> Песенник</h1>
+            <div style="width: 80px;"></div>
+        </div>
     </header>
 
-    <main class="container content-page">
+    <main class="container">
 
         <section class="song-category">
             <h2><i class="fas fa-fire"></i> Песни у костра</h2>
-            <p>Список популярных лирических композиций для огоньков:</p>
+            <p style="font-family: 'Caveat'; font-size: 1.4rem; color: #7f8c8d;">Классика, которую должен знать каждый отряд:</p>
             <div class="songs-list-grid">
                 <div class="song-name-tag">Алые паруса</div>
                 <div class="song-name-tag">Изгиб гитары желтой</div>
@@ -84,15 +241,15 @@
                 <div class="song-name-tag">Вальс в ритме дождя</div>
                 <div class="song-name-tag">Ты моё дыхание</div>
                 <div class="song-name-tag">Замыкая круг</div>
-                <div class="song-name-tag">Александра</div>
                 <div class="song-name-tag">Люди идут по свету</div>
                 <div class="song-name-tag">Пять ребят</div>
-                <div class="song-name-tag">Резиновый ежик</div>
+                <div class="song-name-tag">Перевал</div>
+                <div class="song-name-tag">Звёздная страна</div>
             </div>
         </section>
 
         <section class="song-category">
-            <h2><i class="fas fa-hands-helping"></i> О дружбе (Тексты)</h2>
+            <h2><i class="fas fa-hands-helping"></i> Тексты песен</h2>
             
             <div class="song-card">
                 <h3>Когда мои друзья со мной</h3>
@@ -106,13 +263,13 @@
             </div>
 
             <div class="song-card">
-                <h3>Батарейка</h3>
+                <h3>Батарейка (Жуки)</h3>
                 <div class="lyrics">Холодный ветер с дождём усилился стократно. 
                 Всё говорит об одном, что нет пути обратно. 
                 Что ты не мой Лопушок, а я не твой Андрейка, 
                 Что у любви у нашей села батарейка. 
-                <div class="chorus">Оо ия иё Батарейка!</div>
-                И вроде всё как всегда — всё те же чашки ложки, 
+                <div class="chorus">Оо-ия-иё, Батарейка!</div>
+                И вроде всё как всегда — всё те же чашки-ложки, 
                 Всё та же в кране вода, всё тот же стул без ножки. 
                 Лишь у любви у нашей села Батарейка.</div>
             </div>
@@ -128,9 +285,21 @@
             </div>
         </section>
 
+        <section class="music-card">
+            <div class="music-header">
+                <i class="fas fa-compact-disc fa-spin"></i>
+                <span>Слушать в лагере</span>
+            </div>
+            <div class="iframe-wrapper">
+                <iframe src="https://music.yandex.ru/iframe/playlist/t1maus1/3"></iframe>
+            </div>
+            <div class="music-footer">
+                Плейлист составил: Тимофей У.
+            </div>
+        </section>
+
         <section class="song-category">
-            <h2><i class="fas fa-shining"></i> Строевые песни</h2>
-            
+            <h2><i class="fas fa-walking"></i> Строевые марши</h2>
             <div class="song-card military">
                 <h3>У солдата выходной</h3>
                 <div class="lyrics">У солдата выходной, пуговицы в ряд 
@@ -150,11 +319,15 @@
         </section>
 
         <div class="important-note">
-            <i class="fas fa-volume-up"></i> <strong>Совет:</strong> Если забыли мелодию, эти песни легко найти в любом стриминге. Главное — петь душой, тогда и отряд подхватит!
+            <i class="fas fa-info-circle"></i>
+            <p><strong>Совет:</strong> Если в отряде есть гитарист — он твой лучший друг. Всегда держи в запасе распечатки текстов, чтобы дети могли подпевать хором.</p>
         </div>
 
     </main>
 
+    <footer style="text-align: center; padding: 40px; font-family: 'Caveat'; color: #bdc3c7; font-size: 1.5rem;">
+        тимон • 2026
+    </footer>
 
 </body>
 </html>
