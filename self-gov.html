@@ -4,83 +4,277 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Самоуправление - Вожатский чемоданчик</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-       header { background: linear-gradient(135deg, #2ecc71, #27ae60); color: white; text-align: center; padding: 2rem; position: relative; }
-.roles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0; }
-.role-item { background: white; padding: 15px; border-radius: 15px; text-align: center; border-bottom: 3px solid #2ecc71; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-.role-item i { font-size: 2rem; color: #2ecc71; margin-bottom: 10px; }
-.algo-step { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; background: #f0fff4; padding: 10px; border-radius: 10px; }
-.step-num { background: #27ae60; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
+        /* --- БАЗОВЫЕ СТИЛИ --- */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #fdf6e3;
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        /* --- ШАПКА --- */
+        header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 0 0 30px 30px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #27ae60;
+            border: 2px solid #27ae60;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background: #27ae60;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        header h1 {
+            font-size: 1.4rem;
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        /* --- КОНТЕНТ --- */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        blockquote {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            line-height: 1.2;
+            color: #27ae60;
+            border-left: 5px solid #2ecc71;
+            padding: 10px 20px;
+            margin: 0 0 30px 0;
+            background: rgba(46, 204, 113, 0.05);
+        }
+
+        /* КАРТОЧКИ */
+        .gov-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-left: 8px solid #2ecc71;
+        }
+
+        .gov-card h2 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: #27ae60;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* СЕТКА РОЛЕЙ */
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .role-item {
+            background: #f9fdfa;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #e0f2e9;
+            transition: 0.3s;
+        }
+
+        .role-item:hover {
+            transform: translateY(-5px);
+            background: #ffffff;
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.2);
+        }
+
+        .role-item i {
+            font-size: 2.2rem;
+            color: #2ecc71;
+            margin-bottom: 12px;
+        }
+
+        .role-item strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .role-item small {
+            color: #7f8c8d;
+            font-size: 0.8rem;
+        }
+
+        /* АЛГОРИТМ */
+        .algo-step {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+        }
+
+        .step-num {
+            background: #27ae60;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        /* ЗАМЕТКА */
+        .important-note {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .important-note i {
+            font-size: 2rem;
+            color: #2ecc71;
+        }
+
+        .important-note p {
+            margin: 0;
+            font-family: 'Caveat', cursive;
+            font-size: 1.4rem;
+            line-height: 1.3;
+        }
+
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 600px) {
+            .header-content span { display: none; }
+            .gov-card { padding: 20px; }
+            .roles-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</a>
-        <h1><i class="fas fa-users-cog"></i> Самоуправление в отряде</h1>
-        <p>Совместное управление жизнью коллектива</p>
+        <div class="header-content">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-chevron-left"></i> <span>Назад</span>
+            </a>
+            <h1><i class="fas fa-users-cog"></i> Самоуправление</h1>
+            <div style="width: 80px;"></div> </div>
     </header>
 
-    <main class="container content-page">
+    <main class="container">
         
         <blockquote>
-            Самоуправление — это не когда дети делают всё сами, а когда вожатый и дети действуют вместе ради общей цели.
+            «Самоуправление — это не когда дети делают всё сами, а когда вожатый и дети действуют вместе ради общей цели».
         </blockquote>
 
         <section class="gov-card">
-            <h2><i class="fas fa-sync-alt"></i> 1. Фундамент: ЧТП</h2>
-            <p><strong>Чередование Творческих Поручений</strong> — это механика смены ролей:</p>
-            <ul>
-                <li><strong>Деление:</strong> Отряд разбивается на «экипажи» или «звенья».</li>
-                <li><strong>Цикличность:</strong> Смена ролей каждые 3 дня.</li>
-                <li><strong>Группы:</strong> Порядок, Досуг, Сюрпризы, Информация, Спорт.</li>
+            <h2><i class="fas fa-sync-alt"></i> 1. Механика ЧТП</h2>
+            <p><strong>Чередование Творческих Поручений</strong> — это когда группы детей (экипажи) меняют свои обязанности раз в 3 дня:</p>
+            <ul style="line-height: 1.6;">
+                <li><strong>Экипаж «Порядок»:</strong> Отвечают за чистоту и дежурство.</li>
+                <li><strong>Экипаж «Досуг»:</strong> Помогают придумывать игры и вечерки.</li>
+                <li><strong>Экипаж «Сюрприз»:</strong> Тайные радости и подарки для отряда.</li>
+                <li><strong>Экипаж «Инфо»:</strong> Газеты, соцсети и новости смены.</li>
             </ul>
         </section>
 
-        <section class="gov-card" style="border-left-color: #3498db; background: #f0f7ff;">
-            <h2 style="color: #2980b9;"><i class="fas fa-sitemap"></i> 2. Структура и роли</h2>
+        <section class="gov-card" style="border-left-color: #3498db;">
+            <h2 style="color: #2980b9;"><i class="fas fa-sitemap"></i> 2. Лидеры и роли</h2>
             <div class="roles-grid">
                 <div class="role-item">
                     <i class="fas fa-star"></i>
-                    <div><strong>Командир отряда</strong><br><small>Связь с администрацией</small></div>
+                    <strong>Командир</strong>
+                    <small>Голос отряда на совете лагеря</small>
                 </div>
                 <div class="role-item">
-                    <i class="fas fa-user-friends"></i>
-                    <div><strong>Совет дел</strong><br><small>Творческий штаб</small></div>
+                    <i class="fas fa-magic"></i>
+                    <strong>Совет дел</strong>
+                    <small>Креативный мозг коллектива</small>
                 </div>
                 <div class="role-item">
                     <i class="fas fa-thumbtack"></i>
-                    <div><strong>Инициативные группы</strong><br><small>Временные органы под проект</small></div>
+                    <strong>Штаб проекта</strong>
+                    <small>Временные группы под задачу</small>
                 </div>
             </div>
         </section>
 
-        <section class="gov-card" style="border-left-color: #f39c12; background: #fffaf0;">
-            <h2 style="color: #d35400;"><i class="fas fa-lightbulb"></i> 3. Работа с лидерами</h2>
-            <ul>
-                <li><strong>Выявление:</strong> Наблюдайте, к кому дети обращаются за советом в первые 2 дня.</li>
-                <li><strong>Типы:</strong> Формальные (командиры) и неформальные (душа компании).</li>
-                <li><strong>Конструктив:</strong> Если лидер «негативный», дайте ему ответственное задание, где он сможет проявить власть во благо.</li>
-            </ul>
-        </section>
-
-        <section class="gov-card" style="border-left-color: #9b59b6; background: #faf5ff;">
-            <h2 style="color: #8e44ad;"><i class="fas fa-tasks"></i> 4. Алгоритм деятельности</h2>
-            <div class="algo-step"><div class="step-num">1</div> <div><strong>Планирование:</strong> Аукцион идей или «разведка дел».</div></div>
-            <div class="algo-step"><div class="step-num">2</div> <div><strong>Подготовка:</strong> Формирование групп и распределение задач.</div></div>
-            <div class="algo-step"><div class="step-num">3</div> <div><strong>Проведение:</strong> Реализация проекта.</div></div>
-            <div class="algo-step"><div class="step-num">4</div> <div><strong>Анализ:</strong> Рефлексия на вечерней свечке.</div></div>
+        <section class="gov-card" style="border-left-color: #9b59b6;">
+            <h2 style="color: #8e44ad;"><i class="fas fa-tasks"></i> 3. Цикл коллективного дела</h2>
+            <div class="algo-step">
+                <div class="step-num">1</div> 
+                <div><strong>Разведка:</strong> Ищем интересные дела и идеи.</div>
+            </div>
+            <div class="algo-step">
+                <div class="step-num">2</div> 
+                <div><strong>Сбор:</strong> Планируем, кто за что отвечает.</div>
+            </div>
+            <div class="algo-step">
+                <div class="step-num">3</div> 
+                <div><strong>Действие:</strong> Проводим само мероприятие.</div>
+            </div>
+            <div class="algo-step">
+                <div class="step-num">4</div> 
+                <div><strong>Свечка:</strong> Обсуждаем, что получилось, а что нет.</div>
+            </div>
         </section>
 
         <div class="important-note">
-            <i class="fas fa-exclamation-circle"></i> <strong>Совет вожатому:</strong> Делегируйте полномочия поэтапно. Пусть собрание ведет дежурный командир, а вы лишь направляйте процесс со стороны.
+            <i class="fas fa-exclamation-circle"></i>
+            <p><strong>Совет:</strong> Делегируй постепенно. В начале смены ты — дирижер, в середине — помощник, в конце — просто зритель успеха детей.</p>
         </div>
 
     </main>
 
-
+    <footer style="text-align: center; padding: 40px; font-family: 'Caveat'; color: #bdc3c7; font-size: 1.5rem;">
+        тимон • 2026
+    </footer>
 
 </body>
 </html>
