@@ -23,14 +23,14 @@
         min-height: 100vh;
     }
 
-    /* --- ШАПКА (КРАСНАЯ) --- */
+    /* --- ШАПКА --- */
     header { 
         text-align: center; 
-        padding: 50px 20px; 
+        padding: 60px 20px; 
         background: #e74c3c; 
         border-bottom: 6px solid #c0392b; 
         border-radius: 0 0 40px 40px; 
-        box-shadow: 0 4px 20px rgba(0,0,0,0.15); 
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
         position: relative; 
         z-index: 10; 
     }
@@ -50,32 +50,32 @@
         font-family: 'Caveat', cursive; 
         font-size: 1.5rem; 
         color: rgba(255, 255, 255, 0.9); 
-        margin: 8px 0 0; 
+        margin: 10px 0 0; 
     }
     
-    /* --- КОНТЕЙНЕР СПИСКА --- */
+    /* --- КОНТЕЙНЕР --- */
     .container { 
-        max-width: 600px; /* Сужаем для удобства чтения */
-        margin: 25px auto; 
-        padding: 0 15px; 
+        max-width: 500px; /* Еще немного сузили для изящности */
+        margin: 30px auto; 
+        padding: 0 20px; 
     }
 
-    /* --- ВЕРТИКАЛЬНЫЙ СПИСОК --- */
+    /* --- СПИСОК С ВОЗДУХОМ --- */
     .list-menu { 
         display: flex;
         flex-direction: column;
-        gap: 40px; /* Отступ между плашками */
+        gap: 20px; /* ВОТ ОН, ВАШ ВОЗДУХ МЕЖДУ КАРТОЧКАМИ */
     }
     
-    /* --- ШИРОКИЕ КАРТОЧКИ --- */
+    /* --- КАРТОЧКИ --- */
     .card { 
         background: white; 
-        padding: 20px 25px; 
-        border-radius: 20px; 
+        padding: 22px 25px; 
+        border-radius: 25px; /* Сделали углы более круглыми, под iOS */
         text-decoration: none; 
         display: flex; 
-        align-items: center; /* Выравнивание по горизонтали */
-        box-shadow: 0 6px 0 #ddd; 
+        align-items: center; 
+        box-shadow: 0 8px 0 #ddd; /* Глубокая тень для объема */
         transition: all 0.2s ease; 
         border: 1px solid rgba(0,0,0,0.05); 
         position: relative;
